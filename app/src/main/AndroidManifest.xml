@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Component"
+        tools:targetApi="31">
+        <activity
+            android:name=".ui.ToggleSwitch"
+            android:exported="false"
+            android:label="@string/title_activity_toggle_switch"
+            android:theme="@style/Theme.Component" />
+        <activity
+            android:name=".ui.Button"
+            android:exported="false"
+            android:label="@string/title_activity_button"
+            android:theme="@style/Theme.Component" />
+        <activity
+            android:name=".ui.ModalDialog"
+            android:exported="false" />
+        <activity
+            android:name=".ui.LinkView"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Input"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Sliders"
+            android:exported="false" />
+        <activity
+            android:name=".ui.SelectPicker"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Loading"
+            android:exported="false" />
+        <activity
+            android:name=".ui.List"
+            android:exported="false" />
+        <activity
+            android:name=".ui.SelectDropdown"
+            android:exported="false" />
+        <activity
+            android:name=".ui.RadioButton"
+            android:exported="false" />
+        <activity
+            android:name=".ui.CheckBoxView"
+            android:exported="false" />
+        <activity
+            android:name=".ui.TabControl"
+            android:exported="false"
+            android:label="@string/title_activity_tab_control"
+            android:theme="@style/Theme.Component.NoActionBar" />
+        <activity
+            android:name=".ui.Carousel"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Progress"
+            android:exported="false" />
+        <activity
+            android:name=".ui.buttonView"
+            android:exported="false"
+            android:label="@string/title_activity_button_view"
+            android:theme="@style/Theme.Component" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Component.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

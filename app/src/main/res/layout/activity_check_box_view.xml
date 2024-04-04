@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.CheckBoxView">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="What is 2+2? (Select all the apply)"
+        android:textSize="20sp"
+        android:textColor="#000000"
+        tools:layout_editor_absoluteX="57dp"
+        tools:layout_editor_absoluteY="69dp" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2 X 2"
+        tools:layout_editor_absoluteX="57dp"
+        tools:layout_editor_absoluteY="124dp" />
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="8"
+        tools:layout_editor_absoluteX="56dp"
+        tools:layout_editor_absoluteY="207dp" />
+
+    <CheckBox
+        android:id="@+id/checkBox3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Square root of 16"
+        tools:layout_editor_absoluteX="56dp"
+        tools:layout_editor_absoluteY="283dp" />
+
+    <CheckBox
+        android:id="@+id/checkBox4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cube root of 64"
+        tools:layout_editor_absoluteX="57dp"
+        tools:layout_editor_absoluteY="365dp" />
+
+    <CheckBox
+        android:id="@+id/checkBox5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="22"
+        tools:layout_editor_absoluteX="56dp"
+        tools:layout_editor_absoluteY="436dp" />
+
+</FrameLayout>

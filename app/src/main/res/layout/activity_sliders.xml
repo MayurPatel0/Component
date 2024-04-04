@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.Sliders">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/baseline_brightness_low_24"
+        android:layout_marginTop="355dp"
+        android:layout_marginStart="60dp"/>
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="243dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:max="10"
+        android:min="0"
+        android:progress="4"/>
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/baseline_brightness_high_24"
+        android:layout_marginStart="325dp"
+        android:layout_marginTop="355dp"/>
+
+</FrameLayout>
