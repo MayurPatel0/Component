@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:text="Accessibility Code"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:textSize="30sp"/>
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="30dp"
+            android:contentDescription="Close Dialog"
+            android:src="@drawable/baseline_close_24"
+            android:id="@+id/close"/>
+
+    </LinearLayout>
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/code">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:text="Make sure that select-only picker have a permanent visible label and do not rely on placeholder label. Also, make sure that the visible label is associated with the picker/spinner."/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:text="Use 'Spinner' or 'Button' to give a programmatic role. Also, make sure that the expanded/collapsed state of the picker should be announced and this can be achieved by including the state information dynamically onto the 'contentDescription'."/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:text="Also, when the picker is closed when selecting an option or closing the picker. Make sure, the focus returns to the triggering element, i.e. the picker form."/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

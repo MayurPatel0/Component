@@ -1,12 +1,15 @@
 package com.example.component.ui
 
 import android.os.Bundle
+import android.widget.Button
 import android.widget.CheckBox
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.component.R
+import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class CheckBoxView : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,5 +27,17 @@ class CheckBoxView : AppCompatActivity() {
         val checkBox3: CheckBox = findViewById(R.id.checkBox3)
         val checkBox4: CheckBox = findViewById(R.id.checkBox4)
         val checkBox5: CheckBox = findViewById(R.id.checkBox5)
+
+        val checkboxCodeButton = findViewById<Button>(R.id.checkboxCode)
+        checkboxCodeButton.setOnClickListener { checkboxCodeBottomSheet() }
+    }
+
+    private fun checkboxCodeBottomSheet() {
+        val checkboxBottomSheetDialog = BottomSheetDialog(this)
+        val checkboxBottomSheetDialogView = layoutInflater.inflate(R.layout.checkbox_bottom_sheet, null)
+        checkboxBottomSheetDialog.setContentView(checkboxBottomSheetDialogView)
+        val closeDialog = checkboxBottomSheetDialogView.findViewById<ImageView>(R.id.close)
+        closeDialog.setOnClickListener { checkboxBottomSheetDialog.dismiss() }
+        checkboxBottomSheetDialog.show()
     }
 }

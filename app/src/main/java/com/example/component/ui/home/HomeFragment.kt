@@ -12,6 +12,7 @@ import com.example.component.databinding.FragmentHomeBinding
 import android.widget.ArrayAdapter
 import android.widget.SearchView
 import com.example.component.R
+import com.example.component.ui.Banner
 import com.example.component.ui.Button
 import com.example.component.ui.CheckBoxView
 import com.example.component.ui.Input
@@ -24,6 +25,7 @@ import com.example.component.ui.RadioButton
 import com.example.component.ui.SelectDropdown
 import com.example.component.ui.SelectPicker
 import com.example.component.ui.Sliders
+import com.example.component.ui.Switch
 import com.example.component.ui.TabControl
 
 
@@ -49,7 +51,7 @@ class HomeFragment : Fragment() {
         homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
 
         listView = root.findViewById(R.id.text_home)
-        val items = arrayOf("Button", "Checkbox", "Switch", "Table", "List", "Links", "Radio", "Loading", "Input", "Slider", "Dialog", "Dropdown", "Picker", "Progress", "Carousel", "Tabs")
+        val items = arrayOf("Button", "Checkbox", "Switch", "Table", "List", "Links", "Radio", "Loading", "Input", "Slider", "Dialog", "Dropdown", "Picker", "Progress", "Carousel", "Tabs", "Banner")
 
         // Replace with your data
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, items)
@@ -138,17 +140,30 @@ class HomeFragment : Fragment() {
                     startActivity(intent)
                 }
             }
+            when (selectedItem) {
+                "Switch" -> {
+                    val intent = Intent(requireActivity(), Switch::class.java)
+                    startActivity(intent)
+                }
+            }
+            when (selectedItem) {
+                "Banner" -> {
+                    val intent = Intent(requireActivity(), Banner::class.java)
+                    startActivity(intent)
+                }
+            }
 
         }
 
         searchView = root.findViewById(R.id.Search_view)
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                return true
+                return false
             }
 
-            override fun onQueryTextChange(newText: String?): Boolean {
-                return true
+            override fun onQueryTextChange(updatedList: String?): Boolean {
+                adapter.filter.filter(updatedList)
+                return false
             }
         } )
 

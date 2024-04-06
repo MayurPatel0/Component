@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:text="Accessibility Code"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:textSize="30sp"/>
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="30dp"
+            android:contentDescription="Close Dialog"
+            android:src="@drawable/baseline_close_24"
+            android:id="@+id/close"/>
+
+    </LinearLayout>
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/code">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:maxLines="7"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:text="Make sure that editable fields always have a programmatically determined name and role. Always use a hard visible label for editable fields and do not rely on placeholder labels, as they are not permanent."/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:maxLines="3"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:text="Use 'android:labelFor' to associate the visual label with the form fields. They must be correctly referenced with the appropriate 'android:id' for the form field."/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:maxLines="2"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:text="Always use native form field widget, which already announces appropriate role for the form field."/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:maxLines="5"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:text="Lastly, make sure that hints, or multiple group label are also associated with the form field. This can be achieved by 'contentDescription'."/>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.RadioButton">
+    tools:context=".ui.RadioButton"
+    android:orientation="vertical"
+    android:padding="32dp">
 
     <TextView
         android:id="@+id/textView3"
@@ -14,33 +16,27 @@
         android:text="How would you rate this app?"
         android:textSize="25sp"
         android:textColor="#000000"
-        tools:layout_editor_absoluteX="43dp"
-        tools:layout_editor_absoluteY="86dp"
         tools:ignore="MissingConstraints" />
 
     <RadioGroup
         android:id="@+id/groupLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="43dp"
-        tools:layout_editor_absoluteY="160dp">
+        tools:ignore="MissingConstraints">
 
         <RadioButton
             android:id="@+id/radio1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Excellent 5/5"
-            tools:layout_editor_absoluteX="43dp"
-            tools:layout_editor_absoluteY="164dp" />
+            />
 
         <RadioButton
             android:id="@+id/radio2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Very Good 4/5"
-            tools:layout_editor_absoluteX="43dp"
-            tools:layout_editor_absoluteY="164dp" />
+            />
 
 
         <RadioButton
@@ -48,16 +44,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Good 3/5"
-            tools:layout_editor_absoluteX="43dp"
-            tools:layout_editor_absoluteY="164dp" />
+             />
 
         <RadioButton
             android:id="@+id/radio4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Fair 2/5"
-            tools:layout_editor_absoluteX="43dp"
-            tools:layout_editor_absoluteY="164dp" />
+             />
 
 
         <RadioButton
@@ -65,9 +59,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Poor 1/5"
-            tools:layout_editor_absoluteX="43dp"
-            tools:layout_editor_absoluteY="164dp" />
+             />
 
     </RadioGroup>
 
-</FrameLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_margin="50dp"
+        android:layout_alignParentBottom="true"
+        android:text="Code"
+        android:id="@+id/radioCode"
+        app:icon="@drawable/baseline_keyboard_arrow_down_24"
+        />
+
+</LinearLayout>

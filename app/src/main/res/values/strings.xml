@@ -27,4 +27,5 @@
     <string name="tab_text_2">Tab 2</string>
     <string name="title_activity_button">Button</string>
     <string name="title_activity_toggle_switch">ToggleSwitch</string>
+    <string name="title_activity_switch">Switch</string>
 </resources>

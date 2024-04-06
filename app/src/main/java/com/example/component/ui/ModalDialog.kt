@@ -3,11 +3,13 @@ package com.example.component.ui
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.component.R
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class ModalDialog : AppCompatActivity() {
@@ -25,6 +27,18 @@ class ModalDialog : AppCompatActivity() {
         modalDialogButton.setOnClickListener {
             dialog()
         }
+
+        val modalCodeButton = findViewById<Button>(R.id.modalCode)
+        modalCodeButton.setOnClickListener { modalCodeBottomSheet() }
+    }
+
+    private fun modalCodeBottomSheet() {
+        val modalBottomSheetDialog = BottomSheetDialog(this)
+        val modalBottomSheetDialogView = layoutInflater.inflate(R.layout.modal_bottom_sheet, null)
+        modalBottomSheetDialog.setContentView(modalBottomSheetDialogView)
+        val closeDialog = modalBottomSheetDialogView.findViewById<ImageView>(R.id.close)
+        closeDialog.setOnClickListener { modalBottomSheetDialog.dismiss() }
+        modalBottomSheetDialog.show()
     }
 
     private fun dialog() {

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:srcCompat="@drawable/background"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:id="@+id/logo"
+            app:srcCompat="@drawable/logo"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/appName"
+            android:layout_gravity="center"
+            android:text=" Accessible Component Library"
+            android:textColor="@color/white"
+            android:textSize="33sp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+       <Button
+           android:layout_width="200dp"
+           android:layout_height="80dp"
+           android:layout_gravity="center"
+           android:layout_marginTop="400dp"
+           android:text="Register"
+           android:textSize="24sp"/>
+
+        <Button
+            android:layout_width="400dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:text="Already Register? Login"
+            android:textSize="24sp"/>
+
+        <TextView
+            android:layout_width="400dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:text="       Continue as Guest"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            android:background="?actionBarItemBackground"/>
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

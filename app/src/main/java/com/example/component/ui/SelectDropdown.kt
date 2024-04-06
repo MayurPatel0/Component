@@ -3,11 +3,14 @@ package com.example.component.ui
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
+import android.widget.Button
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.component.R
+import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class SelectDropdown : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,5 +35,17 @@ class SelectDropdown : AppCompatActivity() {
         val adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, items)
         autoCompleteTextView.setAdapter(adapter)
 
+        val dropdownCodeButton = findViewById<Button>(R.id.dropdownCode)
+        dropdownCodeButton.setOnClickListener { dropdownCodeBottomSheet() }
+
+    }
+
+    private fun dropdownCodeBottomSheet() {
+        val dropdownBottomSheetDialog = BottomSheetDialog(this)
+        val dropdownBottomSheetDialogView = layoutInflater.inflate(R.layout.dropdown_bottom_sheet, null)
+        dropdownBottomSheetDialog.setContentView(dropdownBottomSheetDialogView)
+        val closeDialog = dropdownBottomSheetDialogView.findViewById<ImageView>(R.id.close)
+        closeDialog.setOnClickListener { dropdownBottomSheetDialog.dismiss() }
+        dropdownBottomSheetDialog.show()
     }
 }

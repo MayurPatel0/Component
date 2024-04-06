@@ -14,4 +14,14 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_margin="50dp"
+        android:text="Code"
+        android:id="@+id/loadingCode"
+        app:icon="@drawable/baseline_keyboard_arrow_down_24"
+        android:layout_gravity="bottom"
+        />
+
 </FrameLayout>

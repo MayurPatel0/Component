@@ -13,6 +13,14 @@
         android:theme="@style/Theme.Component"
         tools:targetApi="31">
         <activity
+            android:name=".ui.Banner"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Switch"
+            android:exported="false"
+            android:label="@string/title_activity_switch"
+            android:theme="@style/Theme.Component" />
+        <activity
             android:name=".ui.ToggleSwitch"
             android:exported="false"
             android:label="@string/title_activity_toggle_switch"
