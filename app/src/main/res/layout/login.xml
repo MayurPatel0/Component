@@ -13,28 +13,39 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+        
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/backButton"
+            android:src="@drawable/baseline_arrow_back_ios_new_24"
+            android:layout_gravity="start"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:contentDescription="Back Button"
+            android:importantForAccessibility="yes"/>
 
         <ImageView
             android:layout_width="250dp"
-            android:layout_height="200dp"
+            android:layout_height="250dp"
             android:id="@+id/logo"
             app:srcCompat="@drawable/logo"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="40dp"
+            android:contentDescription="A11YKit Logo"/>
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="300dp"
-            android:layout_height="50dp"
+            android:layout_height="80dp"
             android:layout_gravity="center"
-            android:layout_marginTop="280dp">
+            android:layout_marginTop="350dp">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -44,7 +55,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="300dp"
-            android:layout_height="50dp"
+            android:layout_height="80dp"
             android:layout_gravity="center"
             android:layout_marginTop="30dp">
             <com.google.android.material.textfield.TextInputEditText
@@ -61,15 +72,17 @@
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
             android:text="Login"
-            android:textSize="18sp"/>
+            android:textSize="20sp"
+            android:id="@+id/completeLogin"/>
 
         <Button
+            android:id="@+id/registerView"
             android:layout_width="280dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="50dp"
             android:text="REGISTER INSTEAD!"
-            android:textSize="16sp"/>
+            android:textSize="20sp" />
 
     </LinearLayout>
 

@@ -1,5 +1,6 @@
 package com.example.component.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Html
 import android.widget.Button
@@ -7,8 +8,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.component.MainActivity
 import com.example.component.R
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
@@ -21,6 +24,14 @@ class LinkView : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+
+        val appTopBar = findViewById<Toolbar>(R.id.linkToolbar)
+        setSupportActionBar(appTopBar)
+
+        appTopBar.setNavigationOnClickListener {
+            val navigateBack = Intent(this, MainActivity::class.java)
+            startActivity(navigateBack)
         }
 
         val linksView = findViewById<TextView>(R.id.linksView)

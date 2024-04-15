@@ -7,6 +7,22 @@
     android:layout_height="match_parent"
     tools:context=".ui.Progress">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressToolbar"
+            app:navigationIcon="@drawable/baseline_arrow_back_24"
+            app:navigationContentDescription="Back to Home page"
+            app:titleMarginStart="70dp"
+            app:title="Progress Indicator"
+            app:titleTextColor="@color/white"
+            android:accessibilityHeading="true" />
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <ProgressBar
         android:id="@+id/progressBar3"

@@ -5,7 +5,28 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.Banner">
+    tools:context=".ui.Banner"
+    android:accessibilityHeading="true">
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/bannerToolbar"
+            app:navigationIcon="@drawable/baseline_arrow_back_24"
+            app:navigationContentDescription="Back to Home page"
+            app:titleMarginStart="110dp"
+            app:title="Banner"
+            app:titleTextColor="@color/white"
+            android:accessibilityHeading="true" />
+
+
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <Button
         android:layout_width="250dp"

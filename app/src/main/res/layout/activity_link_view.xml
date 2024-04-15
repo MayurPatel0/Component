@@ -7,6 +7,23 @@
     android:layout_height="match_parent"
     tools:context=".ui.LinkView">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linkToolbar"
+            app:navigationIcon="@drawable/baseline_arrow_back_24"
+            app:navigationContentDescription="Back to Home page"
+            app:titleMarginStart="110dp"
+            app:title="Links"
+            app:titleTextColor="@color/white"
+            android:accessibilityHeading="true" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
     <TextView
         android:id="@+id/linksView"
         android:layout_width="wrap_content"

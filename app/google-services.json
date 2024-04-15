@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "633612963779",
+    "project_id": "a11ykit",
+    "storage_bucket": "a11ykit.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:633612963779:android:85a2c175bcee2594f0b776",
+        "android_client_info": {
+          "package_name": "com.example.component"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAD17gSbfjmB_SUFSHLcVRGNcuq8wyfzZ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -9,12 +9,13 @@
             android:icon="@drawable/baseline_home_24"
             android:title="@string/menu_home" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_feedback"
             android:icon="@drawable/baseline_rate_review_24"
-            android:title="@string/menu_gallery" />
+            android:title="@string/menu_feedback" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/baseline_info_24"
-            android:title="@string/menu_slideshow" />
+            android:id="@+id/nav_info"
+            android:icon="@drawable/baseline_attach_email_24"
+            android:title="@string/menu_query" />
     </group>
 </menu>
+

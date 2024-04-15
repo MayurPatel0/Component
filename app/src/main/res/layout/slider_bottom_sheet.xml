@@ -11,17 +11,19 @@
         android:padding="15dp">
 
         <TextView
-            android:layout_width="300dp"
+            android:layout_width="280dp"
             android:layout_height="50dp"
             android:text="Accessibility Code"
             android:textColor="@color/black"
             android:textAlignment="center"
-            android:textSize="30sp"/>
+            android:textSize="30sp"
+            android:accessibilityHeading="true"/>
 
         <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="30dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
             android:contentDescription="Close Dialog"
             android:src="@drawable/baseline_close_24"
             android:id="@+id/close"/>

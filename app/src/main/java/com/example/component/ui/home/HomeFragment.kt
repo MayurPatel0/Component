@@ -20,6 +20,7 @@ import com.example.component.ui.LinkView
 import com.example.component.ui.List
 import com.example.component.ui.Loading
 import com.example.component.ui.ModalDialog
+import com.example.component.ui.NonInteractive
 import com.example.component.ui.Progress
 import com.example.component.ui.RadioButton
 import com.example.component.ui.SelectDropdown
@@ -48,18 +49,16 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
+        homeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
 
         listView = root.findViewById(R.id.text_home)
-        val items = arrayOf("Button", "Checkbox", "Switch", "Table", "List", "Links", "Radio", "Loading", "Input", "Slider", "Dialog", "Dropdown", "Picker", "Progress", "Carousel", "Tabs", "Banner")
+        val items = arrayOf("Button", "Non-Interactive Elements", "Checkbox", "Switch", "Table", "List", "Links", "Radio", "Loading", "Input", "Slider", "Dialog", "Dropdown", "Picker", "Progress", "Carousel", "Tabs", "Banner")
 
         // Replace with your data
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, items)
         listView.adapter = adapter
 
-
-
-        listView.setOnItemClickListener { parent, view, position, id ->
+        listView.setOnItemClickListener { parent, _, position, _ ->
             val selectedItem = parent.getItemAtPosition(position).toString()
 
             when (selectedItem) {
@@ -149,6 +148,12 @@ class HomeFragment : Fragment() {
             when (selectedItem) {
                 "Banner" -> {
                     val intent = Intent(requireActivity(), Banner::class.java)
+                    startActivity(intent)
+                }
+            }
+            when(selectedItem) {
+                "Non-Interactive Elements" -> {
+                    val intent = Intent(requireActivity(), NonInteractive::class.java)
                     startActivity(intent)
                 }
             }

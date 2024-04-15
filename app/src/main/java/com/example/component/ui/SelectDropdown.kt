@@ -1,5 +1,6 @@
 package com.example.component.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
@@ -7,8 +8,10 @@ import android.widget.Button
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.component.MainActivity
 import com.example.component.R
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
@@ -23,12 +26,20 @@ class SelectDropdown : AppCompatActivity() {
             insets
         }
 
+        val appTopBar = findViewById<Toolbar>(R.id.dropdownToolbar)
+        setSupportActionBar(appTopBar)
+
+        appTopBar.setNavigationOnClickListener {
+            val navigateBack = Intent(this, MainActivity::class.java)
+            startActivity(navigateBack)
+        }
+
         val autoCompleteTextView = findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView)
         val items = arrayOf(
             "Woman",
             "Man",
             "Transgender",
-            "Non=binary",
+            "Non-binary",
             "No response"
         )
 

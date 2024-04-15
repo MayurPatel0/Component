@@ -1,5 +1,6 @@
 package com.example.component.ui
 
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
@@ -8,6 +9,8 @@ import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.widget.Toolbar
+import com.example.component.MainActivity
 import com.example.component.R
 import com.example.component.ui.ui.main.SectionsPagerAdapter
 import com.example.component.databinding.ActivityTabControlBinding
@@ -21,6 +24,14 @@ class TabControl : AppCompatActivity() {
 
         binding = ActivityTabControlBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val appTopBar = findViewById<Toolbar>(R.id.tabToolbar)
+        setSupportActionBar(appTopBar)
+
+        appTopBar.setNavigationOnClickListener {
+            val navigateBack = Intent(this, MainActivity::class.java)
+            startActivity(navigateBack)
+        }
 
         val sectionsPagerAdapter = SectionsPagerAdapter(this, supportFragmentManager)
         val viewPager: ViewPager = binding.viewPager

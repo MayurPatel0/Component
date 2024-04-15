@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background">
@@ -15,12 +15,23 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/backButton"
+            android:src="@drawable/baseline_arrow_back_ios_new_24"
+            android:layout_gravity="start"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:contentDescription="Back Button"
+            android:importantForAccessibility="yes"/>
+
+        <ImageView
             android:layout_width="250dp"
             android:layout_height="200dp"
             android:id="@+id/logo"
             app:srcCompat="@drawable/logo"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="10dp"/>
 
     </LinearLayout>
 
@@ -32,9 +43,10 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="300dp"
-            android:layout_height="50dp"
+            android:layout_height="80dp"
             android:layout_gravity="center"
-            android:layout_marginTop="280dp">
+            android:layout_marginTop="280dp"
+            android:id="@+id/registerEmail">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -44,9 +56,10 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="300dp"
-            android:layout_height="50dp"
+            android:layout_height="80dp"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp">
+            android:layout_marginTop="20dp"
+            android:id="@+id/registerPassword">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -56,9 +69,10 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="300dp"
-            android:layout_height="50dp"
+            android:layout_height="80dp"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp">
+            android:layout_marginTop="20dp"
+            android:id="@+id/registerConfirmPassword">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -70,17 +84,19 @@
             android:layout_width="150dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:text="Register"
-            android:textSize="18sp"/>
+            android:textSize="18sp"
+            android:id="@+id/completeRegistration"/>
 
         <Button
             android:layout_width="280dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:text="Already Register? Login"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            android:id="@+id/loginView"/>
 
     </LinearLayout>
 

@@ -7,15 +7,22 @@
     android:layout_height="match_parent"
     tools:context=".ui.List">
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="List"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="50dp"
-        android:textSize="24sp"
-        android:textStyle="bold"/>
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/listToolbar"
+            app:navigationIcon="@drawable/baseline_arrow_back_24"
+            app:navigationContentDescription="Back to Home page"
+            app:titleMarginStart="120dp"
+            app:title="List"
+            app:titleTextColor="@color/white"
+            android:accessibilityHeading="true" />
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <ListView
         android:id="@+id/lists"

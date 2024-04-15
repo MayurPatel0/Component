@@ -14,8 +14,7 @@
         android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,24 +22,27 @@
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="UseCompoundDrawables">
 
         <ImageView
             android:layout_width="250dp"
-            android:layout_height="250dp"
+            android:layout_height="200dp"
             android:id="@+id/logo"
             app:srcCompat="@drawable/logo"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="50dp"
+            android:contentDescription="A11YKit Logo" />
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/appName"
             android:layout_gravity="center"
-            android:text=" Accessible Component Library"
+            android:text="Accessible Component Library"
             android:textColor="@color/white"
-            android:textSize="33sp"
+            android:textSize="20sp"
+
             />
 
     </LinearLayout>
@@ -58,27 +60,31 @@
            android:layout_width="200dp"
            android:layout_height="80dp"
            android:layout_gravity="center"
-           android:layout_marginTop="400dp"
+           android:layout_marginTop="350dp"
            android:text="Register"
-           android:textSize="24sp"/>
+           android:textSize="24sp"
+           android:id="@+id/register"/>
 
         <Button
-            android:layout_width="400dp"
+            android:layout_width="350dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
             android:text="Already Register? Login"
-            android:textSize="24sp"/>
+            android:textSize="20sp"
+            android:id="@+id/login"/>
 
         <TextView
-            android:layout_width="400dp"
-            android:layout_height="80dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="50dp"
-            android:text="       Continue as Guest"
-            android:textSize="34sp"
+            android:layout_marginTop="100dp"
+            android:text="Continue as Guest"
+            android:textSize="24sp"
             android:textStyle="bold"
-            android:background="?actionBarItemBackground"/>
+            android:textColor="@color/white"
+            android:background="?actionBarItemBackground"
+            android:id="@+id/guestView"/>
     </LinearLayout>
 
 
