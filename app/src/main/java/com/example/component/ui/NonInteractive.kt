@@ -33,7 +33,7 @@ class NonInteractive : AppCompatActivity() {
         }
 
         val nonInteractList = findViewById<ListView>(R.id.nonIntList)
-        val listItems = arrayOf("Non-Text Content", "Headings", "Orientation", "Use of Color & Color Contrast", "Automatically Moving Content", "Page Title", "Touch Target", "Language", "Name, Role & Value", "Dynamic Announcements")
+        val listItems = arrayOf("Non-Text Content", "Headings", "Orientation", "Page Title", "Touch Target", "Language", "Name, Role & Value", "Dynamic Announcements")
 
         val listAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, listItems)
         nonInteractList.adapter = listAdapter
@@ -50,6 +50,21 @@ class NonInteractive : AppCompatActivity() {
                 return false
             }
         })
+
+        nonInteractList.setOnItemClickListener { parent, _, position, _ ->
+            val navigateComponent = parent.getItemAtPosition(position).toString()
+            when (navigateComponent) {
+                "Non-Text Content" -> startActivity(Intent(this, NonText::class.java))
+                "Headings" -> startActivity(Intent(this, Heading::class.java))
+                "Orientation" -> startActivity(Intent(this, Orientation::class.java))
+                "Page Title" -> startActivity(Intent(this, PageTitle::class.java))
+                "Touch Target" -> startActivity(Intent(this, TouchTarget::class.java))
+                "Language" -> startActivity(Intent(this, Language::class.java))
+                "Name, Role & Value" -> startActivity(Intent(this, NRV::class.java))
+                "Dynamic Announcements" -> startActivity(Intent(this, Announcement::class.java))
+            }
+
+        }
 
 
     }
