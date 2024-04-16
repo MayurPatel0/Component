@@ -6,8 +6,11 @@ import android.widget.Button
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.doOnTextChanged
 import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
+import java.util.regex.Pattern
 
 class Login : AppCompatActivity() {
 
@@ -25,8 +28,31 @@ class Login : AppCompatActivity() {
             startActivity(backToSplash)
         }
 
+        val emailLayout = findViewById<TextInputLayout>(R.id.loginEmail)
+        val passwordLayout = findViewById<TextInputLayout>(R.id.loginPass)
+
         val enterEmailAddress = findViewById<TextInputEditText>(R.id.email)
         val enterPassword = findViewById<TextInputEditText>(R.id.password)
+
+        enterEmailAddress.doOnTextChanged { text, start, before, count ->
+            val validEmail = text.toString()
+            if (isEmailValid(validEmail))  {
+                emailLayout.error = null
+            }
+            else {
+                emailLayout.error = "Error: Please enter a valid email address."
+            }
+        }
+
+        enterPassword.doOnTextChanged { text, start, before, count ->
+            val validPass = text.toString()
+            if (isPassValid(validPass)) {
+                passwordLayout.error = null
+            }
+            else {
+                passwordLayout.error = "Error: Make sure password is more than 6 characters long."
+            }
+        }
 
         val goToRegisterButton = findViewById<Button>(R.id.registerView)
 
@@ -54,5 +80,19 @@ class Login : AppCompatActivity() {
                 }
         }
 
+    }
+
+    private fun isPassValid(validPass: String): Boolean {
+        val regex = Pattern.compile(
+            "^.{6,}"
+        )
+        return regex.matcher(validPass).matches()
+    }
+
+    private fun isEmailValid(validEmail: String): Boolean {
+        val regex = Pattern.compile(
+            "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}$"
+        )
+        return regex.matcher(validEmail).matches()
     }
 }

@@ -20,8 +20,8 @@
             android:id="@+id/backButton"
             android:src="@drawable/baseline_arrow_back_ios_new_24"
             android:layout_gravity="start"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="15dp"
             android:contentDescription="Back Button"
             android:importantForAccessibility="yes"/>
 
@@ -59,7 +59,9 @@
             android:layout_height="80dp"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:id="@+id/registerPassword">
+            android:id="@+id/registerPassword"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/black">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -72,7 +74,9 @@
             android:layout_height="80dp"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:id="@+id/registerConfirmPassword">
+            android:id="@+id/registerConfirmPassword"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/black">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

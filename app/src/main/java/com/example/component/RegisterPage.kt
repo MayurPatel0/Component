@@ -8,8 +8,11 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.widget.doOnTextChanged
 import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
+import java.util.regex.Pattern
 
 class RegisterPage : AppCompatActivity() {
 
@@ -27,9 +30,45 @@ class RegisterPage : AppCompatActivity() {
             startActivity(backToSplash)
         }
 
+        val emailLayout = findViewById<TextInputLayout>(R.id.registerEmail)
+        val passwordLayout = findViewById<TextInputLayout>(R.id.registerPassword)
+        val confirmPasswordLayout = findViewById<TextInputLayout>(R.id.registerConfirmPassword)
+
         val enterEmailAddress = findViewById<TextInputEditText>(R.id.email)
         val enterPassword = findViewById<TextInputEditText>(R.id.password)
         val enterConfirmPassword = findViewById<TextInputEditText>(R.id.confirmPassword)
+
+        enterEmailAddress.doOnTextChanged { text, start, before, count ->
+            val emailValid = text.toString()
+            if (isEmailValid(emailValid))  {
+                emailLayout.error = null
+            }
+            else {
+                emailLayout.error = "Error: Please enter a valid email address."
+            }
+        }
+
+        enterPassword.doOnTextChanged { text, start, before, count ->
+            val passValid = text.toString()
+            if (isPassValid(passValid)) {
+                passwordLayout.error = null
+            }
+            else {
+                passwordLayout.error = "Error: Make sure password is more than 6 characters long."
+            }
+        }
+
+        enterConfirmPassword.doOnTextChanged { text, start, before, count ->
+            val confirmPassValid = text.toString()
+            val passValid = passwordLayout.editText?.text.toString()
+
+            if (passValid == confirmPassValid) {
+                confirmPasswordLayout.error = null
+            }
+            else {
+                confirmPasswordLayout.error = "Error: Passwords do not match."
+            }
+        }
 
         val registerButton = findViewById<Button>(R.id.completeRegistration)
         registerButton.setOnClickListener {
@@ -39,7 +78,7 @@ class RegisterPage : AppCompatActivity() {
             authentication.createUserWithEmailAndPassword(emailAddress, password)
                 .addOnCompleteListener(this) { task  ->
                     if (task.isSuccessful) {
-                        val registerComplete = Intent(this, MainActivity::class.java)
+                        val registerComplete = Intent(this, Login::class.java)
                         startActivity(registerComplete)
                         //finish()
                     }
@@ -55,5 +94,19 @@ class RegisterPage : AppCompatActivity() {
             val intent = Intent(this, Login::class.java)
             startActivity(intent)
         }
+    }
+
+    private fun isPassValid(passValid: String): Boolean {
+        val regex = Pattern.compile(
+            "^.{6,}"
+        )
+        return regex.matcher(passValid).matches()
+    }
+
+    private fun isEmailValid(emailValid: String): Boolean {
+        val regex = Pattern.compile(
+            "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}$"
+        )
+        return regex.matcher(emailValid).matches()
     }
 }

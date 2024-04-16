@@ -20,8 +20,8 @@
             android:id="@+id/backButton"
             android:src="@drawable/baseline_arrow_back_ios_new_24"
             android:layout_gravity="start"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="15dp"
             android:contentDescription="Back Button"
             android:importantForAccessibility="yes"/>
 
@@ -45,7 +45,8 @@
             android:layout_width="300dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
-            android:layout_marginTop="350dp">
+            android:layout_marginTop="350dp"
+            android:id="@+id/loginEmail">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -57,7 +58,10 @@
             android:layout_width="300dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp">
+            android:layout_marginTop="30dp"
+            android:id="@+id/loginPass"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/black">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
