@@ -22,7 +22,7 @@ class FeedbackFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
-    private lateinit var database: FirebaseFirestore
+    private lateinit var feedbackDatabase: FirebaseFirestore
 
     private lateinit var componentName: TextInputEditText
     private lateinit var feedbackText: TextInputEditText
@@ -40,7 +40,7 @@ class FeedbackFragment : Fragment() {
         _binding = FragmentFeedbackBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        database = FirebaseFirestore.getInstance()
+        feedbackDatabase = FirebaseFirestore.getInstance()
 
         rating = root.findViewById(R.id.autoCompleteTextView)
         val ratings = arrayOf(
@@ -78,7 +78,7 @@ class FeedbackFragment : Fragment() {
             "Feedback Text" to Feedback
         )
 
-        database.collection("Feedback - Android")
+        feedbackDatabase.collection("Feedback - Android")
             .add(feedbackData)
             .addOnSuccessListener {
 
