@@ -20,8 +20,8 @@
             android:id="@+id/backButton"
             android:src="@drawable/baseline_arrow_back_ios_new_24"
             android:layout_gravity="start"
-            android:layout_marginTop="30dp"
-            android:layout_marginStart="15dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="20dp"
             android:contentDescription="Back Button"
             android:importantForAccessibility="yes"/>
 
@@ -31,7 +31,6 @@
             android:id="@+id/logo"
             app:srcCompat="@drawable/logo"
             android:layout_gravity="center"
-            android:layout_marginTop="40dp"
             android:contentDescription="A11YKit Logo"/>
 
     </LinearLayout>
@@ -46,7 +45,8 @@
             android:layout_height="80dp"
             android:layout_gravity="center"
             android:layout_marginTop="350dp"
-            android:id="@+id/loginEmail">
+            android:id="@+id/loginEmail"
+            app:errorEnabled="true">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -61,7 +61,9 @@
             android:layout_marginTop="30dp"
             android:id="@+id/loginPass"
             app:passwordToggleEnabled="true"
-            app:passwordToggleTint="@color/black">
+            app:passwordToggleTint="@color/black"
+            app:errorEnabled="true">
+
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

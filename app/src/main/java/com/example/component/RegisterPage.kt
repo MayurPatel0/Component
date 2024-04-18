@@ -48,6 +48,8 @@ class RegisterPage : AppCompatActivity() {
             }
         }
 
+        ViewCompat.setAccessibilityLiveRegion(emailLayout, ViewCompat.ACCESSIBILITY_LIVE_REGION_POLITE)
+
         enterPassword.doOnTextChanged { text, start, before, count ->
             val passValid = text.toString()
             if (isPassValid(passValid)) {
@@ -57,6 +59,10 @@ class RegisterPage : AppCompatActivity() {
                 passwordLayout.error = "Error: Make sure password is more than 6 characters long."
             }
         }
+
+        ViewCompat.setAccessibilityLiveRegion(passwordLayout,
+            ViewCompat.ACCESSIBILITY_LIVE_REGION_POLITE
+        )
 
         enterConfirmPassword.doOnTextChanged { text, start, before, count ->
             val confirmPassValid = text.toString()
@@ -69,6 +75,10 @@ class RegisterPage : AppCompatActivity() {
                 confirmPasswordLayout.error = "Error: Passwords do not match."
             }
         }
+
+        ViewCompat.setAccessibilityLiveRegion(confirmPasswordLayout,
+            ViewCompat.ACCESSIBILITY_LIVE_REGION_POLITE
+        )
 
         val registerButton = findViewById<Button>(R.id.completeRegistration)
         registerButton.setOnClickListener {

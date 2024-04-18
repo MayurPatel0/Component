@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
 import androidx.core.widget.doOnTextChanged
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
@@ -41,8 +42,11 @@ class Login : AppCompatActivity() {
             }
             else {
                 emailLayout.error = "Error: Please enter a valid email address."
+
             }
         }
+
+        ViewCompat.setAccessibilityLiveRegion(emailLayout, ViewCompat.ACCESSIBILITY_LIVE_REGION_POLITE)
 
         enterPassword.doOnTextChanged { text, start, before, count ->
             val validPass = text.toString()
@@ -53,6 +57,10 @@ class Login : AppCompatActivity() {
                 passwordLayout.error = "Error: Make sure password is more than 6 characters long."
             }
         }
+
+        ViewCompat.setAccessibilityLiveRegion(passwordLayout,
+            ViewCompat.ACCESSIBILITY_LIVE_REGION_POLITE
+        )
 
         val goToRegisterButton = findViewById<Button>(R.id.registerView)
 

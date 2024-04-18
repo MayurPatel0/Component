@@ -2,22 +2,35 @@ package com.example.component
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceScreen
+import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.auth
 
 class SettingsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.settings_activity)
-        if (savedInstanceState == null) {
-            supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.settings, SettingsFragment())
-                .commit()
-        }
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+
+        val userDetails = findViewById<TextView>(R.id.userEmail)
+        val authDetails = FirebaseAuth.getInstance().currentUser
+        if (authDetails != null) {
+            userDetails.text = authDetails.email
+        }
+
+        val logOut = findViewById<TextView>(R.id.logOut)
+        logOut.setOnClickListener {
+            Firebase.auth.signOut()
+
+            val logUserOut = Intent(this, Splash::class.java)
+            startActivity(logUserOut)
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

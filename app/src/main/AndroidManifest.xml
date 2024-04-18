@@ -13,29 +13,41 @@
         android:theme="@style/Theme.Component"
         tools:targetApi="31">
         <activity
+            android:name=".ForgotPassword"
+            android:exported="false"
+            android:theme="@style/Theme.Component.NoActionBar"/>
+        <activity
             android:name=".ui.Announcement"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.Component.NoActionBar" />
         <activity
             android:name=".ui.NRV"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.Component.NoActionBar" />
         <activity
             android:name=".ui.Language"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.Component.NoActionBar" />
         <activity
             android:name=".ui.TouchTarget"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.Component.NoActionBar" />
         <activity
             android:name=".ui.PageTitle"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.Component.NoActionBar" />
         <activity
             android:name=".ui.Orientation"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.Component.NoActionBar" />
         <activity
             android:name=".ui.Heading"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.Component.NoActionBar" />
         <activity
             android:name=".ui.NonText"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.Component.NoActionBar" />
         <activity
             android:name=".GuestActivity"
             android:exported="false"

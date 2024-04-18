@@ -31,7 +31,8 @@
             android:id="@+id/logo"
             app:srcCompat="@drawable/logo"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp"
+            android:contentDescription="A11YKit - LOGO" />
 
     </LinearLayout>
 
@@ -46,7 +47,8 @@
             android:layout_height="80dp"
             android:layout_gravity="center"
             android:layout_marginTop="280dp"
-            android:id="@+id/registerEmail">
+            android:id="@+id/registerEmail"
+            app:errorEnabled="true">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -61,7 +63,8 @@
             android:layout_marginTop="20dp"
             android:id="@+id/registerPassword"
             app:passwordToggleEnabled="true"
-            app:passwordToggleTint="@color/black">
+            app:passwordToggleTint="@color/black"
+            app:errorEnabled="true">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -76,7 +79,8 @@
             android:layout_marginTop="20dp"
             android:id="@+id/registerConfirmPassword"
             app:passwordToggleEnabled="true"
-            app:passwordToggleTint="@color/black">
+            app:passwordToggleTint="@color/black"
+            app:errorEnabled="true">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -81,7 +81,7 @@ class QueryFragment : Fragment() {
     }
 
     private fun uploadStorage() {
-        val image = queryImageStorage.reference.child("Query Images/${UUID.randomUUID()}").putFile(imageUri!!)
+        val image = queryImageStorage.reference.child("Query Images - Android/${UUID.randomUUID()}").putFile(imageUri!!)
 
         image.addOnSuccessListener { task ->
             task.storage.downloadUrl.addOnSuccessListener { uri ->
@@ -117,7 +117,7 @@ class QueryFragment : Fragment() {
 
 
     companion object {
-        private const val REQUEST_IMAGE_CODE = 100
+        private const val REQUEST_IMAGE_CODE = 22
     }
 
 

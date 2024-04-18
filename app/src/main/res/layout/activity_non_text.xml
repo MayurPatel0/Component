@@ -18,7 +18,6 @@
             android:id="@+id/ntcToolbar"
             app:navigationIcon="@drawable/baseline_arrow_back_24"
             app:navigationContentDescription="Back to Home page"
-            app:titleMarginStart="70dp"
             app:title="Non-Text Content"
             app:titleTextColor="@color/white"
             android:accessibilityHeading="true" />
