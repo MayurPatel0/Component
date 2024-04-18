@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -61,6 +62,12 @@ class Login : AppCompatActivity() {
         ViewCompat.setAccessibilityLiveRegion(passwordLayout,
             ViewCompat.ACCESSIBILITY_LIVE_REGION_POLITE
         )
+
+        val forgotPassword = findViewById<TextView>(R.id.forgotPassword)
+        forgotPassword.setOnClickListener {
+            val intent = Intent(this, ForgotPassword::class.java)
+            startActivity(intent)
+        }
 
         val goToRegisterButton = findViewById<Button>(R.id.registerView)
 
