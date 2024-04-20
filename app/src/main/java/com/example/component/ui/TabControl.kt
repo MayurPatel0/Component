@@ -10,10 +10,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
+import com.example.component.GuestActivity
 import com.example.component.MainActivity
 import com.example.component.R
 import com.example.component.ui.ui.main.SectionsPagerAdapter
 import com.example.component.databinding.ActivityTabControlBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class TabControl : AppCompatActivity() {
 
@@ -28,9 +30,17 @@ class TabControl : AppCompatActivity() {
         val appTopBar = findViewById<Toolbar>(R.id.tabToolbar)
         setSupportActionBar(appTopBar)
 
+        val authentication = FirebaseAuth.getInstance()
         appTopBar.setNavigationOnClickListener {
-            val navigateBack = Intent(this, MainActivity::class.java)
-            startActivity(navigateBack)
+            val authUser = authentication.currentUser
+            if (authUser == null) {
+                val navigateBack = Intent(this, GuestActivity::class.java)
+                startActivity(navigateBack)
+            }
+            else {
+                val navigateBack = Intent(this, MainActivity::class.java)
+                startActivity(navigateBack)
+            }
         }
 
         val sectionsPagerAdapter = SectionsPagerAdapter(this, supportFragmentManager)
