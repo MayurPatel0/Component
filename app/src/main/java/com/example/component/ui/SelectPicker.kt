@@ -1,9 +1,11 @@
 package com.example.component.ui
 
 import android.content.Intent
+import android.graphics.Paint
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.Spinner
 import androidx.activity.enableEdgeToEdge
@@ -63,6 +65,33 @@ class SelectPicker : AppCompatActivity() {
         pickerBottomSheetDialog.setContentView(pickerBottomSheetDialogView)
         val closeDialog = pickerBottomSheetDialogView.findViewById<ImageView>(R.id.close)
         closeDialog.setOnClickListener { pickerBottomSheetDialog.dismiss() }
+        val check1 = pickerBottomSheetDialogView.findViewById<CheckBox>(R.id.pickerCode1)
+        val check2 = pickerBottomSheetDialogView.findViewById<CheckBox>(R.id.pickerCode2)
+        val check3 = pickerBottomSheetDialogView.findViewById<CheckBox>(R.id.pickerCode3)
+        check1.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                check1.paintFlags = check1.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
+            else {
+                check1.paintFlags = check1.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            }
+        }
+        check2.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                check2.paintFlags = check2.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
+            else {
+                check2.paintFlags = check2.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            }
+        }
+        check3.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                check3.paintFlags = check3.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
+            else {
+                check3.paintFlags = check3.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            }
+        }
         pickerBottomSheetDialog.show()
     }
 }

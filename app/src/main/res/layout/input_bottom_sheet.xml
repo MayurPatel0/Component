@@ -40,27 +40,30 @@
         android:orientation="vertical"
         android:id="@+id/code">
 
-        <TextView
+        <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/inputCode1"
             android:padding="10dp"
             android:maxLines="7"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:text="Make sure that editable fields always have a programmatically determined name and role. Always use a hard visible label for editable fields and do not rely on placeholder labels, as they are not permanent."/>
 
-        <TextView
+        <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/inputCode2"
             android:padding="10dp"
             android:maxLines="3"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:text="Use 'android:labelFor' to associate the visual label with the form fields. They must be correctly referenced with the appropriate 'android:id' for the form field."/>
 
-        <TextView
+        <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/inputCode3"
             android:padding="10dp"
             android:maxLines="2"
             android:textColor="@color/black"
@@ -68,9 +71,10 @@
             android:text="Always use native form field widget, which already announces appropriate role for the form field."/>
 
 
-        <TextView
+        <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/inputCode4"
             android:padding="10dp"
             android:maxLines="5"
             android:textColor="@color/black"

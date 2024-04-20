@@ -85,17 +85,42 @@ class RegisterPage : AppCompatActivity() {
         registerButton.setOnClickListener {
             val emailAddress = enterEmailAddress.text.toString()
             val password = enterPassword.text.toString()
+            val confirmPass = enterConfirmPassword.text.toString()
 
-            authentication.createUserWithEmailAndPassword(emailAddress, password)
-                .addOnCompleteListener(this) { task  ->
-                    if (task.isSuccessful) {
-                        val registerComplete = Intent(this, Login::class.java)
-                        startActivity(registerComplete)
+            if (emailAddress.isEmpty() && password.isEmpty() && confirmPass.isEmpty()) {
+                emptyFields()
+            }
+            else if (emailAddress.isEmpty()){
+                emptyEmailField()
+            }
+            else if (!isEmailValid(emailAddress)){
+                errorEmailField()
+            }
+            else if (password.isEmpty()){
+                emptyPassField()
+            }
+            else if (!isPassValid(password)){
+                errorPassField()
+            }
+            else if (confirmPass.isEmpty()){
+                emptyPassField()
+            }
+            else if (password != confirmPass){
+                errorPass()
+            }
+            else {
+
+                authentication.createUserWithEmailAndPassword(emailAddress, password)
+                    .addOnCompleteListener(this) { task ->
+                        if (task.isSuccessful) {
+                            val registerComplete = Intent(this, Login::class.java)
+                            startActivity(registerComplete)
+                        } else {
+                            unableToRegister()
+                        }
                     }
-                    else {
-                        unableToRegister()
-                    }
-                }
+
+            }
         }
 
 
@@ -104,6 +129,54 @@ class RegisterPage : AppCompatActivity() {
             val intent = Intent(this, Login::class.java)
             startActivity(intent)
         }
+    }
+
+    private fun errorPass() {
+        MaterialAlertDialogBuilder(this)
+            .setTitle("Unable to Register!!")
+            .setMessage("Please make sure that confirm password and password matches.")
+            .setNegativeButton("Cancel", null)
+            .show()
+    }
+
+    private fun errorPassField() {
+        MaterialAlertDialogBuilder(this)
+            .setTitle("Unable to Register!!")
+            .setMessage("Please make sure that password field is appropriately filled with a valid password.")
+            .setNegativeButton("Cancel", null)
+            .show()
+    }
+
+    private fun errorEmailField() {
+        MaterialAlertDialogBuilder(this)
+            .setTitle("Unable to Register!!")
+            .setMessage("Please make sure that email field is appropriately filled with a valid previously non-registered email.")
+            .setNegativeButton("Cancel", null)
+            .show()
+    }
+
+    private fun emptyPassField() {
+        MaterialAlertDialogBuilder(this)
+            .setTitle("Unable to Register!!")
+            .setMessage("Please make sure that both password and confirm password fields are appropriately filled, they cannot be left empty.")
+            .setNegativeButton("Cancel", null)
+            .show()
+    }
+
+    private fun emptyEmailField() {
+        MaterialAlertDialogBuilder(this)
+            .setTitle("Unable to Register!!")
+            .setMessage("Please make sure that email field is appropriately filled, they cannot be left empty.")
+            .setNegativeButton("Cancel", null)
+            .show()
+    }
+
+    private fun emptyFields() {
+        MaterialAlertDialogBuilder(this)
+            .setTitle("Unable to Register!!")
+            .setMessage("Please make sure that all fields are appropriately filled including confirm password field, they cannot be left empty.")
+            .setNegativeButton("Cancel", null)
+            .show()
     }
 
     private fun unableToRegister() {

@@ -1,10 +1,13 @@
 package com.example.component.ui
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Paint
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -51,12 +54,40 @@ class SelectDropdown : AppCompatActivity() {
 
     }
 
+
     private fun dropdownCodeBottomSheet() {
         val dropdownBottomSheetDialog = BottomSheetDialog(this)
         val dropdownBottomSheetDialogView = layoutInflater.inflate(R.layout.dropdown_bottom_sheet, null)
         dropdownBottomSheetDialog.setContentView(dropdownBottomSheetDialogView)
         val closeDialog = dropdownBottomSheetDialogView.findViewById<ImageView>(R.id.close)
         closeDialog.setOnClickListener { dropdownBottomSheetDialog.dismiss() }
+        val check1 = dropdownBottomSheetDialogView.findViewById<CheckBox>(R.id.dropdownCode1)
+        val check2 = dropdownBottomSheetDialogView.findViewById<CheckBox>(R.id.dropdownCode2)
+        val check3 = dropdownBottomSheetDialogView.findViewById<CheckBox>(R.id.dropdownCode3)
+        check1.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                check1.paintFlags = check1.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
+            else {
+                check1.paintFlags = check1.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            }
+        }
+        check2.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                check2.paintFlags = check2.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
+            else {
+                check2.paintFlags = check2.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            }
+        }
+        check3.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                check3.paintFlags = check3.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
+            else {
+                check3.paintFlags = check3.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            }
+        }
         dropdownBottomSheetDialog.show()
     }
 }

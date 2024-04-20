@@ -40,45 +40,50 @@
         android:orientation="vertical"
         android:id="@+id/code">
 
-        <TextView
+        <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/checkCode1"
             android:padding="10dp"
             android:maxLines="7"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:text="Make sure that checkbox elements always have a programmatically determined name, role and state. Remember checkboxes are not mutually exclusive, and users should be allowed to check or uncheck them independent of other checkboxes within the group."/>
 
-        <TextView
+        <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/checkCode2"
             android:padding="10dp"
             android:maxLines="3"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:text="The checkbox programmatic name should match the visible label on screen, and can be provided via 'android:text' or 'android:labelFor'."/>
 
-        <TextView
+        <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/checkCode3"
             android:padding="10dp"
             android:maxLines="2"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:text="The native checkbox widget already announces appropriate role of checkbox."/>
 
-        <TextView
+        <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/checkCode4"
             android:padding="10dp"
             android:maxLines="3"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:text="The native checkbox widget appropriately announces the current state of the checkbox, whether it is checked/unchecked and updates automatically."/>
 
-        <TextView
+        <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/checkCode5"
             android:padding="10dp"
             android:maxLines="5"
             android:textColor="@color/black"

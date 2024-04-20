@@ -1,8 +1,10 @@
 package com.example.component.ui
 
 import android.content.Intent
+import android.graphics.Paint
 import android.os.Bundle
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -44,6 +46,33 @@ class toggleSwitch : AppCompatActivity() {
         switchBottomSheetDialog.setContentView(switchBottomSheetDialogView)
         val closeDialog = switchBottomSheetDialogView.findViewById<ImageView>(R.id.close)
         closeDialog.setOnClickListener { switchBottomSheetDialog.dismiss() }
+        val check1 = switchBottomSheetDialogView.findViewById<CheckBox>(R.id.toggleCode1)
+        val check2 = switchBottomSheetDialogView.findViewById<CheckBox>(R.id.toggleCode2)
+        val check3 = switchBottomSheetDialogView.findViewById<CheckBox>(R.id.toggleCode3)
+        check1.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                check1.paintFlags = check1.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
+            else {
+                check1.paintFlags = check1.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            }
+        }
+        check2.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                check2.paintFlags = check2.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
+            else {
+                check2.paintFlags = check2.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            }
+        }
+        check3.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                check3.paintFlags = check3.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
+            else {
+                check3.paintFlags = check3.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            }
+        }
         switchBottomSheetDialog.show()
     }
 }

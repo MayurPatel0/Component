@@ -1,8 +1,11 @@
 package com.example.component.ui
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Paint
 import android.os.Bundle
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -47,12 +50,40 @@ class Banner : AppCompatActivity() {
         }
     }
 
+
     private fun bannerCodeBottomSheet() {
         val bannerBottomSheetDialog = BottomSheetDialog(this)
         val bannerBottomSheetDialogView = layoutInflater.inflate(R.layout.banner_bottom_sheet, null)
         bannerBottomSheetDialog.setContentView(bannerBottomSheetDialogView)
         val closeDialog = bannerBottomSheetDialogView.findViewById<ImageView>(R.id.close)
         closeDialog.setOnClickListener { bannerBottomSheetDialog.dismiss() }
+        val check1 = bannerBottomSheetDialogView.findViewById<CheckBox>(R.id.bannerCode1)
+        val check2 = bannerBottomSheetDialogView.findViewById<CheckBox>(R.id.bannerCode2)
+        val check3 = bannerBottomSheetDialogView.findViewById<CheckBox>(R.id.bannerCode3)
+        check1.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                check1.paintFlags = check1.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
+            else {
+                check1.paintFlags = check1.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            }
+        }
+        check2.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                check2.paintFlags = check2.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
+            else {
+                check2.paintFlags = check2.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            }
+        }
+        check3.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                check3.paintFlags = check3.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
+            else {
+                check3.paintFlags = check3.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            }
+        }
         bannerBottomSheetDialog.show()
     }
 }

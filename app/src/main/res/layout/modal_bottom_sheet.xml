@@ -40,25 +40,28 @@
         android:orientation="vertical"
         android:id="@+id/code">
 
-        <TextView
+        <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/modalCode1"
             android:padding="10dp"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:text="Make sure that there is always an option to close the modal dialog. As, tapping to the background screen of the dialog is not fully supported by screen readers."/>
 
-        <TextView
+        <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/modalCode2"
             android:padding="10dp"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:text="Use 'AlertDialog' as this will automatically communicate to screen reader user about the modal dialog and the focus is restricted to the modal dialog when active on screen."/>
 
-        <TextView
+        <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/modalCode3"
             android:padding="10dp"
             android:textColor="@color/black"
             android:textSize="16sp"

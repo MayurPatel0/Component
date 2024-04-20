@@ -40,27 +40,30 @@
         android:orientation="vertical"
         android:id="@+id/code">
 
-        <TextView
+        <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/progressCode1"
             android:padding="10dp"
             android:maxLines="7"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:text="Make sure that progress is always announced when on screen, as they would signpost the users on the current activty. Always, use native 'ProgressBar', as it appropriately announces the current and increment/decrement updated values appropriately."/>
 
-        <TextView
+        <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/progressCode2"
             android:padding="10dp"
             android:maxLines="3"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:text="Use 'android:accessibilityLiveRegion' or 'announceForAccessibility()' to expose them directly to screen readers."/>
 
-        <TextView
+        <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/progressCode3"
             android:padding="10dp"
             android:textColor="@color/black"
             android:textSize="16sp"

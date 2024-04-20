@@ -40,39 +40,39 @@
         android:orientation="vertical"
         android:id="@+id/code">
 
-        <TextView
+        <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/linkCode1"
             android:padding="10dp"
-            android:maxLines="7"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:text="Make sure that links can be easily navigated, activable and can this can be also done via Rotor as part of the TalkBack."/>
 
-        <TextView
+        <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/linkCode2"
             android:padding="10dp"
-            android:maxLines="3"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:text="Use 'URLSpan' or 'Linkify' to provide the link role."/>
 
-        <TextView
+        <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/linkCode3"
             android:padding="10dp"
-            android:maxLines="2"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:text="Do not have more than one link within a paragraph, as TalkBack/Screen reader can only access one(first) link within a paragraph."/>
 
 
-        <TextView
+        <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/linkCode4"
             android:padding="10dp"
-            android:maxLines="5"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:text="Lastly, make sure that links clearly explain they are external links and this should also be announced as part of the link accessible name. This can be achieved by 'contentDescription'."/>

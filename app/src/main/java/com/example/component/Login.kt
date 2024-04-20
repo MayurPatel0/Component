@@ -85,7 +85,20 @@ class Login : AppCompatActivity() {
 
             if (emailAddress.isEmpty() && password.isEmpty()) {
                 emptyFields()
-            } else {
+            }
+            else if (emailAddress.isEmpty()){
+                emptyEmailField()
+            }
+            else if (!isEmailValid(emailAddress)){
+                errorEmailField()
+            }
+            else if (password.isEmpty()){
+                emptyPassField()
+            }
+            else if (!isPassValid(password)){
+                errorPassField()
+            }
+            else {
 
             authentication.signInWithEmailAndPassword(emailAddress, password)
                 .addOnCompleteListener(this) { task ->
@@ -99,6 +112,38 @@ class Login : AppCompatActivity() {
             }
         }
 
+    }
+
+    private fun errorPassField() {
+        MaterialAlertDialogBuilder(this)
+            .setTitle("Unable to Register!!")
+            .setMessage("Please make sure that password field is appropriately filled with a valid password.")
+            .setNegativeButton("Cancel", null)
+            .show()
+    }
+
+    private fun errorEmailField() {
+        MaterialAlertDialogBuilder(this)
+            .setTitle("Unable to Register!!")
+            .setMessage("Please make sure that email field is appropriately filled with a valid previously non-registered email.")
+            .setNegativeButton("Cancel", null)
+            .show()
+    }
+
+    private fun emptyPassField() {
+        MaterialAlertDialogBuilder(this)
+            .setTitle("Unable to Login!!")
+            .setMessage("Please make sure that password field is appropriately filled, they cannot be left empty.")
+            .setNegativeButton("Cancel", null)
+            .show()
+    }
+
+    private fun emptyEmailField() {
+        MaterialAlertDialogBuilder(this)
+            .setTitle("Unable to Login!!")
+            .setMessage("Please make sure that email field is appropriately filled, they cannot be left empty.")
+            .setNegativeButton("Cancel", null)
+            .show()
     }
 
     private fun emptyFields() {

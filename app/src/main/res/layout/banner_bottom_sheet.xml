@@ -40,26 +40,29 @@
         android:orientation="vertical"
         android:id="@+id/code">
 
-        <TextView
+        <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/bannerCode1"
             android:padding="10dp"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:text="Make sure that banner/snackbar updates are announced which are dynamically generated as part of a user activity. Make sure to display only one banner at a time."/>
 
-        <TextView
+        <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/bannerCode2"
             android:padding="10dp"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:text="Use 'announceForAccessibility()' to make user notify about them."/>
 
 
-        <TextView
+        <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/bannerCode3"
             android:padding="10dp"
             android:textColor="@color/black"
             android:textSize="16sp"

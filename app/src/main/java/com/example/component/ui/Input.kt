@@ -1,8 +1,11 @@
 package com.example.component.ui
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Paint
 import android.os.Bundle
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -37,12 +40,49 @@ class Input : AppCompatActivity() {
         inputCodeButton.setOnClickListener { inputCodeBottomSheet() }
     }
 
+
     private fun inputCodeBottomSheet() {
         val inputBottomSheetDialog = BottomSheetDialog(this)
         val inputBottomSheetDialogView = layoutInflater.inflate(R.layout.input_bottom_sheet, null)
         inputBottomSheetDialog.setContentView(inputBottomSheetDialogView)
         val closeDialog = inputBottomSheetDialogView.findViewById<ImageView>(R.id.close)
         closeDialog.setOnClickListener { inputBottomSheetDialog.dismiss() }
+        val check1 = inputBottomSheetDialogView.findViewById<CheckBox>(R.id.inputCode1)
+        val check2 = inputBottomSheetDialogView.findViewById<CheckBox>(R.id.inputCode2)
+        val check3 = inputBottomSheetDialogView.findViewById<CheckBox>(R.id.inputCode3)
+        val check4 = inputBottomSheetDialogView.findViewById<CheckBox>(R.id.inputCode4)
+        check1.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                check1.paintFlags = check1.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
+            else {
+                check1.paintFlags = check1.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            }
+        }
+        check2.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                check2.paintFlags = check2.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
+            else {
+                check2.paintFlags = check2.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            }
+        }
+        check3.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                check3.paintFlags = check3.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
+            else {
+                check3.paintFlags = check3.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            }
+        }
+        check4.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                check4.paintFlags = check4.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
+            else {
+                check4.paintFlags = check4.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            }
+        }
         inputBottomSheetDialog.show()
     }
 }

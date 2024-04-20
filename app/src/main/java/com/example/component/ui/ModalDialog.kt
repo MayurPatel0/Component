@@ -1,9 +1,11 @@
 package com.example.component.ui
 
 import android.content.Intent
+import android.graphics.Paint
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -49,6 +51,33 @@ class ModalDialog : AppCompatActivity() {
         modalBottomSheetDialog.setContentView(modalBottomSheetDialogView)
         val closeDialog = modalBottomSheetDialogView.findViewById<ImageView>(R.id.close)
         closeDialog.setOnClickListener { modalBottomSheetDialog.dismiss() }
+        val check1 = modalBottomSheetDialogView.findViewById<CheckBox>(R.id.modalCode1)
+        val check2 = modalBottomSheetDialogView.findViewById<CheckBox>(R.id.modalCode2)
+        val check3 = modalBottomSheetDialogView.findViewById<CheckBox>(R.id.modalCode3)
+        check1.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                check1.paintFlags = check1.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
+            else {
+                check1.paintFlags = check1.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            }
+        }
+        check2.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                check2.paintFlags = check2.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
+            else {
+                check2.paintFlags = check2.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            }
+        }
+        check3.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                check3.paintFlags = check3.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
+            else {
+                check3.paintFlags = check3.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            }
+        }
         modalBottomSheetDialog.show()
     }
 

@@ -40,25 +40,28 @@
         android:orientation="vertical"
         android:id="@+id/code">
 
-        <TextView
+        <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/toggleCode1"
             android:padding="10dp"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:text="Make sure to always use native 'Switch' view, as they have in-built accessibile role. If using custom switch with 'clickListener' event, make sure an accessible role is given."/>
 
-        <TextView
+        <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/toggleCode2"
             android:padding="10dp"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:text="Also, make sure that the on/off switch state is appropriately programmatically defined. Always, have an appropriate permanent visual labelo for the switch as well."/>
 
-        <TextView
+        <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/toggleCode3"
             android:padding="10dp"
             android:textColor="@color/black"
             android:textSize="16sp"

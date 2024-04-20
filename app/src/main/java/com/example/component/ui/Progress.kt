@@ -1,8 +1,11 @@
 package com.example.component.ui
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Paint
 import android.os.Bundle
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.ProgressBar
 import androidx.activity.enableEdgeToEdge
@@ -39,12 +42,40 @@ class Progress : AppCompatActivity() {
         progressCodeButton.setOnClickListener { progressCodeBottomSheet() }
     }
 
+
     private fun progressCodeBottomSheet() {
         val progressBottomSheetDialog = BottomSheetDialog(this)
         val progressBottomSheetDialogView = layoutInflater.inflate(R.layout.progress_bottom_sheet, null)
         progressBottomSheetDialog.setContentView(progressBottomSheetDialogView)
         val closeDialog = progressBottomSheetDialogView.findViewById<ImageView>(R.id.close)
         closeDialog.setOnClickListener { progressBottomSheetDialog.dismiss() }
+        val check1 = progressBottomSheetDialogView.findViewById<CheckBox>(R.id.progressCode1)
+        val check2 = progressBottomSheetDialogView.findViewById<CheckBox>(R.id.progressCode2)
+        val check3 = progressBottomSheetDialogView.findViewById<CheckBox>(R.id.progressCode3)
+        check1.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                check1.paintFlags = check1.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
+            else {
+                check1.paintFlags = check1.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            }
+        }
+        check2.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                check2.paintFlags = check2.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
+            else {
+                check2.paintFlags = check2.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            }
+        }
+        check3.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                check3.paintFlags = check3.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
+            else {
+                check3.paintFlags = check3.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            }
+        }
         progressBottomSheetDialog.show()
     }
 }

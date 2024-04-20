@@ -40,25 +40,28 @@
         android:orientation="vertical"
         android:id="@+id/code">
 
-        <TextView
+        <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/dropdownCode1"
             android:padding="10dp"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:text="Make sure that select-only dropdown have a permanent visible label and do not rely on placeholder label. Also, make sure that the visible label is associated with the dropdown."/>
 
-        <TextView
+        <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/dropdownCode2"
             android:padding="10dp"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:text="Use 'Spinner' or 'Button' to give a programmatic role. Also, make sure that the expanded/collapsed state of the dropdown should be announced and this can be achieved by including the state information dynamically onto the 'contentDescription'."/>
 
-        <TextView
+        <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/dropdownCode3"
             android:padding="10dp"
             android:textColor="@color/black"
             android:textSize="16sp"

@@ -1,6 +1,7 @@
 package com.example.component.ui
 
 import android.content.Intent
+import android.graphics.Paint
 import android.os.Bundle
 import android.widget.Button
 import android.widget.CheckBox
@@ -49,6 +50,51 @@ class CheckBoxView : AppCompatActivity() {
         checkboxBottomSheetDialog.setContentView(checkboxBottomSheetDialogView)
         val closeDialog = checkboxBottomSheetDialogView.findViewById<ImageView>(R.id.close)
         closeDialog.setOnClickListener { checkboxBottomSheetDialog.dismiss() }
+        val check1 = checkboxBottomSheetDialogView.findViewById<CheckBox>(R.id.checkCode1)
+        val check2 = checkboxBottomSheetDialogView.findViewById<CheckBox>(R.id.checkCode2)
+        val check3 = checkboxBottomSheetDialogView.findViewById<CheckBox>(R.id.checkCode3)
+        val check4 = checkboxBottomSheetDialogView.findViewById<CheckBox>(R.id.checkCode4)
+        val check5 = checkboxBottomSheetDialogView.findViewById<CheckBox>(R.id.checkCode5)
+        check1.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                check1.paintFlags = check1.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
+            else {
+                check1.paintFlags = check1.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            }
+        }
+        check2.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                check2.paintFlags = check2.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
+            else {
+                check2.paintFlags = check2.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            }
+        }
+        check3.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                check3.paintFlags = check3.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
+            else {
+                check3.paintFlags = check3.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            }
+        }
+        check4.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                check4.paintFlags = check4.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
+            else {
+                check4.paintFlags = check4.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            }
+        }
+        check5.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                check5.paintFlags = check5.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
+            else {
+                check5.paintFlags = check5.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            }
+        }
         checkboxBottomSheetDialog.show()
     }
 }

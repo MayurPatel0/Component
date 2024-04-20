@@ -25,6 +25,15 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
     <Button
         android:layout_width="200dp"
         android:layout_height="50dp"
@@ -39,7 +48,7 @@
         android:layout_marginTop="30dp"
         android:text="Disabled"
         android:enabled="false"/>
-    
+
     <ImageButton
         android:layout_width="30dp"
         android:layout_height="30dp"
@@ -56,5 +65,9 @@
         android:text="Code"
         android:id="@+id/buttonCode"
         app:icon="@drawable/baseline_keyboard_arrow_down_24" />
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

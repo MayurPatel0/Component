@@ -1,8 +1,11 @@
 package com.example.component.ui
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Paint
 import android.os.Bundle
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.SeekBar
 import androidx.activity.enableEdgeToEdge
@@ -45,6 +48,33 @@ class Sliders : AppCompatActivity() {
         sliderBottomSheetDialog.setContentView(sliderBottomSheetDialogView)
         val closeDialog = sliderBottomSheetDialogView.findViewById<ImageView>(R.id.close)
         closeDialog.setOnClickListener { sliderBottomSheetDialog.dismiss() }
+        val check1 = sliderBottomSheetDialogView.findViewById<CheckBox>(R.id.sliderCode1)
+        val check2 = sliderBottomSheetDialogView.findViewById<CheckBox>(R.id.sliderCode2)
+        val check3 = sliderBottomSheetDialogView.findViewById<CheckBox>(R.id.sliderCode3)
+        check1.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                check1.paintFlags = check1.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
+            else {
+                check1.paintFlags = check1.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            }
+        }
+        check2.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                check2.paintFlags = check2.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
+            else {
+                check2.paintFlags = check2.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            }
+        }
+        check3.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                check3.paintFlags = check3.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
+            else {
+                check3.paintFlags = check3.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            }
+        }
         sliderBottomSheetDialog.show()
     }
 }

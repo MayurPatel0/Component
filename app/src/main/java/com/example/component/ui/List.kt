@@ -1,9 +1,11 @@
 package com.example.component.ui
 
 import android.content.Intent
+import android.graphics.Paint
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.ListView
 import androidx.activity.enableEdgeToEdge
@@ -52,11 +54,26 @@ class List : AppCompatActivity() {
         val codeSheet = BottomSheetDialog(this)
         val sheetView = layoutInflater.inflate(R.layout.list_bottom_sheet, null)
         codeSheet.setContentView(sheetView)
-
-
         val closeDialog = sheetView.findViewById<ImageView>(R.id.close)
         closeDialog.setOnClickListener { codeSheet.dismiss() }
-
+        val check1 = sheetView.findViewById<CheckBox>(R.id.listCode1)
+        val check2 = sheetView.findViewById<CheckBox>(R.id.listCode2)
+        check1.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                check1.paintFlags = check1.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
+            else {
+                check1.paintFlags = check1.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            }
+        }
+        check2.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                check2.paintFlags = check2.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
+            else {
+                check2.paintFlags = check2.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            }
+        }
         codeSheet.show()
     }
 

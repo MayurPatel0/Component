@@ -1,8 +1,10 @@
 package com.example.component.ui
 
 import android.content.Intent
+import android.graphics.Paint
 import android.os.Bundle
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.ProgressBar
 import androidx.activity.enableEdgeToEdge
@@ -46,6 +48,33 @@ class Loading : AppCompatActivity() {
         loadingBottomSheetDialog.setContentView(loadingBottomSheetDialogView)
         val closeDialog = loadingBottomSheetDialogView.findViewById<ImageView>(R.id.close)
         closeDialog.setOnClickListener { loadingBottomSheetDialog.dismiss() }
+        val check1 = loadingBottomSheetDialogView.findViewById<CheckBox>(R.id.loadingCode1)
+        val check2 = loadingBottomSheetDialogView.findViewById<CheckBox>(R.id.loadingCode2)
+        val check3 = loadingBottomSheetDialogView.findViewById<CheckBox>(R.id.loadingCode3)
+        check1.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                check1.paintFlags = check1.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
+            else {
+                check1.paintFlags = check1.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            }
+        }
+        check2.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                check2.paintFlags = check2.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
+            else {
+                check2.paintFlags = check2.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            }
+        }
+        check3.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                check3.paintFlags = check3.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
+            else {
+                check3.paintFlags = check3.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            }
+        }
         loadingBottomSheetDialog.show()
     }
 }

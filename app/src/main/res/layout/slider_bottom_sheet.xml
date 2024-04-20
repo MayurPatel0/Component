@@ -40,25 +40,28 @@
         android:orientation="vertical"
         android:id="@+id/code">
 
-        <TextView
+        <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/sliderCode1"
             android:padding="10dp"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:text="Make sure that sliders have a permanent visible label. Also, make sure that the visible label is associated with the slider."/>
 
-        <TextView
+        <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/sliderCode2"
             android:padding="10dp"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:text="Use 'Slider' to give a programmatic role. As, the native element announces dynamically the updated value."/>
 
-        <TextView
+        <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/sliderCode3"
             android:padding="10dp"
             android:textColor="@color/black"
             android:textSize="16sp"

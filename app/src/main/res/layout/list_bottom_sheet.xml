@@ -40,20 +40,20 @@
         android:orientation="vertical"
         android:id="@+id/code">
 
-        <TextView
+        <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/listCode1"
             android:padding="10dp"
-            android:maxLines="5"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:text="Make sure that elements that semantically highlights a inter-releated list items. They should use the 'ListView', and make sure that all set of list items are contained within one 'ListView'."/>
 
-        <TextView
+        <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/listCode2"
             android:padding="10dp"
-            android:maxLines="5"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:text="Also, make sure that distinct lists are contained within it's individual 'ListView' and not within a single 'ListView'."/>
