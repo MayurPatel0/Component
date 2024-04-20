@@ -18,8 +18,7 @@
             android:id="@+id/radioToolbar"
             app:navigationIcon="@drawable/baseline_arrow_back_24"
             app:navigationContentDescription="Back to Home page"
-            app:titleMarginStart="90dp"
-            app:title="Modal Dialog"
+            app:title="Radio"
             app:titleTextColor="@color/white"
             android:accessibilityHeading="true" />
 

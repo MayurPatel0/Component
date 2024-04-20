@@ -14,7 +14,8 @@
         android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@null" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -41,7 +42,7 @@
             android:layout_gravity="center"
             android:text="Accessible Component Library"
             android:textColor="@color/white"
-            android:textSize="20sp"
+            android:textSize="22sp"
 
             />
 
@@ -58,27 +59,27 @@
 
        <Button
            android:layout_width="200dp"
-           android:layout_height="80dp"
+           android:layout_height="70dp"
            android:layout_gravity="center"
            android:layout_marginTop="350dp"
            android:text="Register"
-           android:textSize="24sp"
+           android:textSize="20sp"
            android:id="@+id/register"/>
 
         <Button
-            android:layout_width="350dp"
-            android:layout_height="80dp"
+            android:layout_width="300dp"
+            android:layout_height="70dp"
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
             android:text="Already Register? Login"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:id="@+id/login"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="60dp"
             android:text="Continue as Guest"
             android:textSize="24sp"
             android:textStyle="bold"

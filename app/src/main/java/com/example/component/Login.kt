@@ -9,6 +9,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.widget.doOnTextChanged
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
@@ -82,19 +83,39 @@ class Login : AppCompatActivity() {
             val emailAddress = enterEmailAddress.text.toString()
             val password = enterPassword.text.toString()
 
+            if (emailAddress.isEmpty() && password.isEmpty()) {
+                emptyFields()
+            } else {
+
             authentication.signInWithEmailAndPassword(emailAddress, password)
                 .addOnCompleteListener(this) { task ->
-                    if (task.isSuccessful){
+                    if (task.isSuccessful) {
                         val loginComplete = Intent(this, MainActivity::class.java)
                         startActivity(loginComplete)
-                        //finish()
-                    }
-                    else {
-
+                    } else {
+                        userNotFound()
                     }
                 }
+            }
         }
 
+    }
+
+    private fun emptyFields() {
+        MaterialAlertDialogBuilder(this)
+            .setTitle("Unable to Login!!")
+            .setMessage("Please make sure all fields are appropriately filled, they cannot be left empty.")
+            .setNegativeButton("Cancel", null)
+            .show()
+    }
+
+    private fun userNotFound() {
+        MaterialAlertDialogBuilder(this)
+            .setTitle("Unable to Login!!")
+            .setMessage("Please double check your email address and password. If you've forgotten your password, you can reset it via Forgot Password? or if you don't have account move to the register page and register for an account.")
+            .setNegativeButton("Cancel", null)
+
+            .show()
     }
 
     private fun isPassValid(validPass: String): Boolean {

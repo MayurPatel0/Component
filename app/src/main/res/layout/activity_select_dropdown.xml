@@ -17,7 +17,6 @@
             android:id="@+id/dropdownToolbar"
             app:navigationIcon="@drawable/baseline_arrow_back_24"
             app:navigationContentDescription="Back to Home page"
-            app:titleMarginStart="100dp"
             app:title="Dropdown"
             app:titleTextColor="@color/white"
             android:accessibilityHeading="true" />

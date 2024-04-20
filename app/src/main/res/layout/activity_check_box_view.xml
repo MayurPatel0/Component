@@ -18,8 +18,7 @@
             android:id="@+id/checkboxToolbar"
             app:navigationIcon="@drawable/baseline_arrow_back_24"
             app:navigationContentDescription="Back to Home page"
-            app:titleMarginStart="80dp"
-            app:title="Carousel Slides"
+            app:title="Checkboxes"
             app:titleTextColor="@color/white"
             android:accessibilityHeading="true" />
 
@@ -30,7 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="What is 2+2?(Select all the apply)"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textColor="#000000"
         android:textStyle="bold"
         android:layout_marginStart="20dp"
@@ -93,7 +92,6 @@
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_margin="50dp"
-        android:layout_alignParentBottom="true"
         android:text="Code"
         android:id="@+id/checkboxCode"
         app:icon="@drawable/baseline_keyboard_arrow_down_24"

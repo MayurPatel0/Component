@@ -7,11 +7,13 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.widget.doOnTextChanged
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
+import java.util.regex.Pattern
 
 class ForgotPassword : AppCompatActivity() {
 
@@ -37,6 +39,17 @@ class ForgotPassword : AppCompatActivity() {
         val resetEmailLayout = findViewById<TextInputLayout>(R.id.resetEmail)
         val resetEmail = findViewById<TextInputEditText>(R.id.email)
 
+        resetEmail.doOnTextChanged { text, start, before, count ->
+            val email = text.toString()
+            if (isEmailValid(email))  {
+                resetEmailLayout.error = null
+            }
+            else {
+                resetEmailLayout.error = "Error: Please enter a valid email address."
+
+            }
+        }
+
         val resetPassword = findViewById<Button>(R.id.resetPass)
 
         resetPassword.setOnClickListener {
@@ -53,10 +66,17 @@ class ForgotPassword : AppCompatActivity() {
         }
     }
 
+    private fun isEmailValid(email: String): Boolean {
+        val regex = Pattern.compile(
+            "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}$"
+        )
+        return regex.matcher(email).matches()
+    }
+
     private fun successDialog() {
         MaterialAlertDialogBuilder(this)
             .setTitle("Password Reset Email Sent!!")
-            .setMessage("Please check your inbox for full detailed instructions on resetting the password. Once, you have reset your password, please navigate yourself to the login page. The password reset email is only valid for 1 hour.")
+            .setMessage("Please check your email inbox for full detailed instructions on resetting the password. Once, you have reset your password, please navigate yourself to the login page. The password reset email is only valid for 1 hour.")
             .setNegativeButton("Ok", null)
 
             .show()

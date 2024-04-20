@@ -39,8 +39,7 @@ class QueryFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val queryViewModel =
-            ViewModelProvider(this)[QueryViewModel::class.java]
+        ViewModelProvider(this)[QueryViewModel::class.java]
 
         _binding = FragmentQueryBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -65,7 +64,6 @@ class QueryFragment : Fragment() {
     }
 
 
-
     private fun uploadImage() {
         val intent = Intent(Intent.ACTION_GET_CONTENT)
         intent.type = "image/*"
@@ -81,7 +79,7 @@ class QueryFragment : Fragment() {
     }
 
     private fun uploadStorage() {
-        val image = queryImageStorage.reference.child("Query Images - Android/${UUID.randomUUID()}").putFile(imageUri!!)
+        val image = queryImageStorage.reference.child("Images/${UUID.randomUUID()}").putFile(imageUri!!)
 
         image.addOnSuccessListener { task ->
             task.storage.downloadUrl.addOnSuccessListener { uri ->

@@ -18,7 +18,6 @@
             android:id="@+id/pageToolbar"
             app:navigationIcon="@drawable/baseline_arrow_back_24"
             app:navigationContentDescription="Back to Home page"
-            app:titleMarginStart="90dp"
             app:title="Page Title"
             app:titleTextColor="@color/white"
             android:accessibilityHeading="true" />

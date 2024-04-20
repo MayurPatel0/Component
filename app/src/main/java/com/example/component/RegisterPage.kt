@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.widget.doOnTextChanged
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
@@ -90,10 +91,9 @@ class RegisterPage : AppCompatActivity() {
                     if (task.isSuccessful) {
                         val registerComplete = Intent(this, Login::class.java)
                         startActivity(registerComplete)
-                        //finish()
                     }
                     else {
-                        //inline error messages!
+                        unableToRegister()
                     }
                 }
         }
@@ -104,6 +104,15 @@ class RegisterPage : AppCompatActivity() {
             val intent = Intent(this, Login::class.java)
             startActivity(intent)
         }
+    }
+
+    private fun unableToRegister() {
+        MaterialAlertDialogBuilder(this)
+            .setTitle("Unable to register account!!")
+            .setMessage("Please double check your email and password and make sure that they are appropriately filled. If you have already registered, please move to the login page. If you are still having the same problem than please reach out to us directly via email.")
+            .setNegativeButton("Cancel", null)
+
+            .show()
     }
 
     private fun isPassValid(passValid: String): Boolean {

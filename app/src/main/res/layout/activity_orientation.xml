@@ -18,7 +18,6 @@
             android:id="@+id/orientationToolbar"
             app:navigationIcon="@drawable/baseline_arrow_back_24"
             app:navigationContentDescription="Back to Home page"
-            app:titleMarginStart="100dp"
             app:title="Orientation"
             app:titleTextColor="@color/white"
             android:accessibilityHeading="true" />

@@ -77,7 +77,7 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    implementation ("com.google.android.material:material:1.11.0")
+    implementation (libs.material)
 
 
     val composeBom = platform("androidx.compose:compose-bom:2024.03.00")

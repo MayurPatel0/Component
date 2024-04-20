@@ -17,7 +17,6 @@
             android:id="@+id/loadingToolbar"
             app:navigationIcon="@drawable/baseline_arrow_back_24"
             app:navigationContentDescription="Back to Home page"
-            app:titleMarginStart="110dp"
             app:title="Loading"
             app:titleTextColor="@color/white"
             android:accessibilityHeading="true" />

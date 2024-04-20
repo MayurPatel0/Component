@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.NonInteractive"
-    android:orientation="vertical">
+    tools:context=".datePicker">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -15,28 +14,29 @@
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/nonIntToolbar"
+            android:id="@+id/switchToolbar"
             app:navigationIcon="@drawable/baseline_arrow_back_24"
             app:navigationContentDescription="Back to Home page"
-            app:title="Non-Interactive Elements"
+            android:layout_gravity="center"
+            app:title="Date Picker"
             app:titleTextColor="@color/white"
             android:accessibilityHeading="true" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <SearchView
-        android:layout_width="match_parent"
+    <DatePicker
+        android:id="@+id/datePicker"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:queryHint="Search for Accessibility"
-        android:iconifiedByDefault="false"
-        android:id="@+id/listSearch"/>
+        android:layout_centerInParent="true" />
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:id="@+id/nonIntList"
-        android:layout_marginTop="20dp"/>
-
-</LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_margin="50dp"
+        android:layout_alignParentBottom="true"
+        android:text="Code"
+        android:id="@+id/dpCode"
+        app:icon="@drawable/baseline_keyboard_arrow_down_24"/>
+    
+</RelativeLayout>

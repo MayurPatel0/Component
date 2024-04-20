@@ -11,7 +11,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.component.ui.Banner
-import com.example.component.ui.Button
+import com.example.component.ui.ButtonView
 import com.example.component.ui.CheckBoxView
 import com.example.component.ui.Input
 import com.example.component.ui.LinkView
@@ -24,8 +24,8 @@ import com.example.component.ui.RadioButton
 import com.example.component.ui.SelectDropdown
 import com.example.component.ui.SelectPicker
 import com.example.component.ui.Sliders
-import com.example.component.ui.Switch
 import com.example.component.ui.TabControl
+import com.example.component.ui.toggleSwitch
 
 class GuestActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -74,9 +74,9 @@ class GuestActivity : AppCompatActivity() {
                 "Input" -> startActivity(Intent(this, Input::class.java))
                 "Radio" -> startActivity(Intent(this, RadioButton::class.java))
                 "Dialog" -> startActivity(Intent(this, ModalDialog::class.java))
-                "Button" -> startActivity(Intent(this, Button::class.java))
+                "Button" -> startActivity(Intent(this, ButtonView::class.java))
                 "Tabs" -> startActivity(Intent(this, TabControl::class.java))
-                "Switch" -> startActivity(Intent(this, Switch::class.java))
+                "Switch" -> startActivity(Intent(this, toggleSwitch::class.java))
                 "Banner" -> startActivity(Intent(this, Banner::class.java))
                 "Non-Interactive Elements" -> startActivity(Intent(this, NonInteractive::class.java))
             }

@@ -18,7 +18,6 @@
             android:id="@+id/nrvToolbar"
             app:navigationIcon="@drawable/baseline_arrow_back_24"
             app:navigationContentDescription="Back to Home page"
-            app:titleMarginStart="40dp"
             app:title="Name, Role, and Value"
             app:titleTextColor="@color/white"
             android:accessibilityHeading="true" />

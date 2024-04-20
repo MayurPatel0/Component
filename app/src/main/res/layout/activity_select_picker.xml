@@ -18,7 +18,6 @@
             android:id="@+id/pickerToolbar"
             app:navigationIcon="@drawable/baseline_arrow_back_24"
             app:navigationContentDescription="Back to Home page"
-            app:titleMarginStart="80dp"
             app:title="Picker (Spinner)"
             app:titleTextColor="@color/white"
             android:accessibilityHeading="true" />

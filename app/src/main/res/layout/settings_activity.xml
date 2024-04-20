@@ -21,18 +21,38 @@
         android:layout_marginTop="30dp"
         android:textColor="@color/black"
         android:layout_marginStart="30dp"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/userEmail"
-        android:text=""
+        android:text="Not a registered user!!!"
         android:layout_marginTop="10dp"
-        android:textColor="@color/black"
+        android:textColor="@color/Blue"
         android:layout_marginStart="30dp"
-        android:textSize="24sp"/>
+        android:textSize="18sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:text="Welcome to A11YKit. A re-usable accessible component library for native mobile apps. All the components within the library are tested for accessibility. "
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:textColor="@color/black"
+        android:text=" This component library is specifically designed for developers, app product manager, UI/UX designer/developer and accessibility tester/engineer. There is something for everyone within this component library. "
+        android:textSize="18sp"
+        android:layout_marginTop="10dp"/>
 
     <TextView
         android:layout_width="match_parent"

@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.Carousel"
-    android:accessibilityHeading="true">
+    android:accessibilityHeading="true"
+    android:orientation="vertical">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -18,11 +19,53 @@
         android:id="@+id/carouselToolbar"
         app:navigationIcon="@drawable/baseline_arrow_back_24"
         app:navigationContentDescription="Back to Home page"
-        app:titleMarginStart="80dp"
-        app:title="Carousel Slides"
+        app:title="Segmented Control"
         app:titleTextColor="@color/white"
         android:accessibilityHeading="true" />
 
     </com.google.android.material.appbar.AppBarLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Gender Identity:"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="150dp"/>
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:singleSelection="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        app:checkedButton="@+id/manButton"
+        android:id="@+id/segmentedControl">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="?attr/materialButtonOutlinedStyle"
+            android:id="@+id/manButton"
+            android:text="Man"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="?attr/materialButtonOutlinedStyle"
+            android:id="@+id/womanButton"
+            android:text="Woman"/>
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="?attr/materialButtonOutlinedStyle"
+            android:id="@+id/transButton"
+            android:text="Non-binary"/>
+
+
+    </com.google.android.material.button.MaterialButtonToggleGroup>
 
 </LinearLayout>

@@ -12,8 +12,10 @@ import com.example.component.databinding.FragmentHomeBinding
 import android.widget.ArrayAdapter
 import android.widget.SearchView
 import com.example.component.R
+import com.example.component.datePicker
 import com.example.component.ui.Banner
-import com.example.component.ui.Button
+import com.example.component.ui.ButtonView
+import com.example.component.ui.Carousel
 import com.example.component.ui.CheckBoxView
 import com.example.component.ui.Input
 import com.example.component.ui.LinkView
@@ -26,8 +28,8 @@ import com.example.component.ui.RadioButton
 import com.example.component.ui.SelectDropdown
 import com.example.component.ui.SelectPicker
 import com.example.component.ui.Sliders
-import com.example.component.ui.Switch
 import com.example.component.ui.TabControl
+import com.example.component.ui.toggleSwitch
 
 
 class HomeFragment : Fragment() {
@@ -52,7 +54,7 @@ class HomeFragment : Fragment() {
         homeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
 
         listView = root.findViewById(R.id.text_home)
-        val items = arrayOf("Button", "Non-Interactive Elements", "Checkbox", "Switch", "Table", "List", "Links", "Radio", "Loading", "Input", "Slider", "Dialog", "Dropdown", "Picker", "Progress", "Carousel", "Tabs", "Banner")
+        val items = arrayOf("Button", "Non-Interactive Elements", "Checkbox", "Switch", "Table", "List", "Links", "Radio", "Loading", "Input", "Slider", "Dialog", "Dropdown", "Picker", "Progress", "Segmented Control", "Tabs", "Banner", "Date Picker")
 
         // Replace with your data
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, items)
@@ -129,7 +131,7 @@ class HomeFragment : Fragment() {
             }
             when (selectedItem) {
                 "Button" -> {
-                    val intent = Intent(requireActivity(), Button::class.java)
+                    val intent = Intent(requireActivity(), ButtonView::class.java)
                     startActivity(intent)
                 }
             }
@@ -141,7 +143,7 @@ class HomeFragment : Fragment() {
             }
             when (selectedItem) {
                 "Switch" -> {
-                    val intent = Intent(requireActivity(), Switch::class.java)
+                    val intent = Intent(requireActivity(), toggleSwitch::class.java)
                     startActivity(intent)
                 }
             }
@@ -157,7 +159,18 @@ class HomeFragment : Fragment() {
                     startActivity(intent)
                 }
             }
-
+            when(selectedItem) {
+                "Date Picker" -> {
+                    val intent = Intent(requireActivity(), datePicker::class.java)
+                    startActivity(intent)
+                }
+            }
+            when(selectedItem) {
+                "Segmented Control" -> {
+                    val intent = Intent(requireActivity(), Carousel::class.java)
+                    startActivity(intent)
+                }
+            }
         }
 
         searchView = root.findViewById(R.id.Search_view)
