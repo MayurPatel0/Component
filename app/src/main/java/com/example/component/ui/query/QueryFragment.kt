@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
-import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.component.R
@@ -33,8 +32,9 @@ class QueryFragment : Fragment() {
     private lateinit var emailID: TextInputEditText
     private lateinit var queryText: TextInputEditText
     private lateinit var queryImageStorage: FirebaseStorage
+    private lateinit var queryImg: Uri
+    private lateinit var selectImg: ImageView
     private val REQUEST_IMAGE_CODE = 22
-    private var imageUrl: String? = null
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -47,10 +47,11 @@ class QueryFragment : Fragment() {
 
         emailID = root.findViewById(R.id.email)
         queryText = root.findViewById(R.id.feedback)
+        imagePick = root.findViewById(R.id.imagePick)
         queryDatabase = FirebaseFirestore.getInstance()
         queryImageStorage = FirebaseStorage.getInstance()
 
-        val imageChooser = root.findViewById<ImageView>(R.id.imagePick)
+        val imageChooser = root.findViewById<Button>(R.id.pickImage)
         imageChooser.setOnClickListener {
             uploadImage()
         }
@@ -65,7 +66,7 @@ class QueryFragment : Fragment() {
                 cannotSubmit()
             }
             else {
-                queryFirestore(imageUrl!!)
+                uploadStorage()
             }
         }
 
@@ -82,8 +83,9 @@ class QueryFragment : Fragment() {
 
 
     private fun uploadImage() {
-        val intent = Intent(Intent.ACTION_GET_CONTENT)
+        val intent = Intent()
         intent.type = "image/*"
+        intent.action = Intent.ACTION_GET_CONTENT
         startActivityForResult(intent, REQUEST_IMAGE_CODE)
     }
 
@@ -91,21 +93,24 @@ class QueryFragment : Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_IMAGE_CODE && resultCode == RESULT_OK) {
-            val imageUri = data?.data ?: return
-            uploadStorage(imageUri)
+            queryImg = data?.data!!
+            imagePick.setImageURI(queryImg)
         }
     }
 
-    private fun uploadStorage(imageUri: Uri) {
-        val image = queryImageStorage.reference.child("Images/" + UUID.randomUUID().toString())
-        image.putFile(imageUri)
-            .addOnSuccessListener {
-              imageUrl = it.metadata?.reference?.downloadUrl.toString()
-                imagePick.setImageURI(imageUri)
+    private fun uploadStorage() {
+        val filename = UUID.randomUUID().toString() + ".jpg"
+        val storageRef = queryImageStorage.reference.child("Query - Android/$filename")
+        val uploadTask = storageRef.putFile(queryImg)
+
+        uploadTask.addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                val downloadUrl = task.result.storage.downloadUrl
+                downloadUrl.addOnSuccessListener { url ->
+                    queryFirestore(url.toString())
+                }
             }
-            .addOnFailureListener {
-                uploadFail()
-            }
+        }
 
     }
 
@@ -129,7 +134,6 @@ class QueryFragment : Fragment() {
             .addOnSuccessListener {
                 emailID.setText("")
                 queryText.setText("")
-                imageUrl = null
             }
 
             .addOnFailureListener {

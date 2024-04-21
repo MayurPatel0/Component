@@ -109,6 +109,16 @@
 
     </androidx.cardview.widget.CardView>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:height="40dp"
+        android:width="200dp"
+        android:text="Select Image"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:id="@+id/pickImage"/>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

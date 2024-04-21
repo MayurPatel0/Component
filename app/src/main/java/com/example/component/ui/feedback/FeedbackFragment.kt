@@ -34,11 +34,13 @@ class FeedbackFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        //Android Studio generated code boilerplate.
         feedbackViewModel =
             ViewModelProvider(this)[FeedbackViewModel::class.java]
 
         _binding = FragmentFeedbackBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
 
         feedbackDatabase = FirebaseFirestore.getInstance()
 
