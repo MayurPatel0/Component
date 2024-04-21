@@ -23,6 +23,8 @@ class Login : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.login)
 
+        //firebase authentication intialisation, the code logic was taken from here: [https://firebase.google.com/docs/auth/android/start]
+        //Note: The above is the starter guidelines for implementing firebase authentication in your Android apps.
         authentication = FirebaseAuth.getInstance()
 
         val backButton = findViewById<ImageView>(R.id.backButton)
@@ -31,6 +33,7 @@ class Login : AppCompatActivity() {
             startActivity(backToSplash)
         }
 
+        //Referencing the input fields edit and the layout by their ID's from XML.
         val emailLayout = findViewById<TextInputLayout>(R.id.loginEmail)
         val passwordLayout = findViewById<TextInputLayout>(R.id.loginPass)
 
@@ -48,6 +51,8 @@ class Login : AppCompatActivity() {
             }
         }
 
+        // Code Adapted from: [https://appt.org/en/docs/android/samples/accessibility-live-region]
+        //From the above, only took guidance on achieving live region for error notification.
         ViewCompat.setAccessibilityLiveRegion(emailLayout, ViewCompat.ACCESSIBILITY_LIVE_REGION_POLITE)
 
         enterPassword.doOnTextChanged { text, start, before, count ->
@@ -60,6 +65,8 @@ class Login : AppCompatActivity() {
             }
         }
 
+        // Code Adapted from: [https://appt.org/en/docs/android/samples/accessibility-live-region]
+        //From the above, only took guidance on achieving live region for error notification.
         ViewCompat.setAccessibilityLiveRegion(passwordLayout,
             ViewCompat.ACCESSIBILITY_LIVE_REGION_POLITE
         )
@@ -83,15 +90,18 @@ class Login : AppCompatActivity() {
             val emailAddress = enterEmailAddress.text.toString()
             val password = enterPassword.text.toString()
 
+            //if all the required fields are empty, show alert for empty fields.
             if (emailAddress.isEmpty() && password.isEmpty()) {
                 emptyFields()
             }
+            //if email address field is empty or invalid, show alert for empty email field or invalid email field respectively.
             else if (emailAddress.isEmpty()){
                 emptyEmailField()
             }
             else if (!isEmailValid(emailAddress)){
                 errorEmailField()
             }
+            //if password field is empty or invalid, show alert for empty password field or invalid password field respectively.
             else if (password.isEmpty()){
                 emptyPassField()
             }
@@ -99,13 +109,16 @@ class Login : AppCompatActivity() {
                 errorPassField()
             }
             else {
-
+                //code logic adapted from: [https://androidknowledge.com/login-signup-android-firebase-auth-kotlin/], further information can be found in appendix.
+                // Only Adapted the logic on how to login with email and password as a whole, also learnt from original firebase authentication references: [https://firebase.google.com/docs/auth/android/password-auth]
+                // Original code: From original code, only adapted how to login a user, once the user is logged in he goes to the main activity, was implemented by me.
             authentication.signInWithEmailAndPassword(emailAddress, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
                         val loginComplete = Intent(this, MainActivity::class.java)
                         startActivity(loginComplete)
                     } else {
+                        //Error Alert when the user cannot be logged in, due to multiple reasons such as already wrong used etails, or the registered user does not exist, or network error, or firebase authentication broke down.
                         userNotFound()
                     }
                 }
@@ -114,6 +127,9 @@ class Login : AppCompatActivity() {
 
     }
 
+
+    //All the MaterialAlertDialogBuilder were coded using the Material 3 (Material Design), original code boilerplate can be found here: [https://github.com/material-components/material-components-android/blob/master/docs/components/Dialog.md
+    // Note: Only the Alert dialog implementation logic was learnt as mentioned above, else the Alert Dialogs were built using the learned knowledge of their code boilerplate.
     private fun errorPassField() {
         MaterialAlertDialogBuilder(this)
             .setTitle("Unable to Register!!")

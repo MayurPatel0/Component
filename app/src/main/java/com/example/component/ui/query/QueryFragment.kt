@@ -33,6 +33,7 @@ class QueryFragment : Fragment() {
     private lateinit var emailID: TextInputEditText
     private lateinit var queryText: TextInputEditText
     private lateinit var queryImageStorage: FirebaseStorage
+    private val REQUEST_IMAGE_CODE = 22
     private var imageUrl: String? = null
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -49,7 +50,7 @@ class QueryFragment : Fragment() {
         queryDatabase = FirebaseFirestore.getInstance()
         queryImageStorage = FirebaseStorage.getInstance()
 
-        val imageChooser = root.findViewById<Button>(R.id.chooseImage)
+        val imageChooser = root.findViewById<ImageView>(R.id.imagePick)
         imageChooser.setOnClickListener {
             uploadImage()
         }
@@ -64,7 +65,7 @@ class QueryFragment : Fragment() {
                 cannotSubmit()
             }
             else {
-                uploadStorage()
+                queryFirestore(imageUrl!!)
             }
         }
 
@@ -86,40 +87,30 @@ class QueryFragment : Fragment() {
         startActivityForResult(intent, REQUEST_IMAGE_CODE)
     }
 
-    @Deprecated("Deprecated in Java")
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_IMAGE_CODE && resultCode == RESULT_OK) {
             val imageUri = data?.data ?: return
-            imageUrl = imageUri.toString()
-            imagePick.setImageURI(imageUri)
+            uploadStorage(imageUri)
         }
     }
 
-    private fun uploadStorage() {
+    private fun uploadStorage(imageUri: Uri) {
         val image = queryImageStorage.reference.child("Images/" + UUID.randomUUID().toString())
-        val uploadTask = image.putFile(Uri.parse(imageUrl!!))
-
-        uploadTask.addOnSuccessListener {
-            image.downloadUrl.addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    val downloadUrl = task.result.toString()
-                    queryFirestore(downloadUrl)
-                }
-                else {
-                    uploadFail()
-                }
+        image.putFile(imageUri)
+            .addOnSuccessListener {
+              imageUrl = it.metadata?.reference?.downloadUrl.toString()
+                imagePick.setImageURI(imageUri)
             }
-        }
+            .addOnFailureListener {
+                uploadFail()
+            }
 
     }
 
     private fun uploadFail() {
-        MaterialAlertDialogBuilder(requireActivity())
-            .setTitle("Image Upload Failure!!")
-            .setMessage("Please try again or alternatively email us your query directly on test123@123.com.")
-            .setNegativeButton("Cancel", null)
-            .show()
+
     }
 
     private fun queryFirestore(queryImgURL: String) {
@@ -145,11 +136,6 @@ class QueryFragment : Fragment() {
 
             }
 
-    }
-
-
-    companion object {
-        private const val REQUEST_IMAGE_CODE = 22
     }
 
 

@@ -7,9 +7,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.component.GuestActivity
 import com.example.component.MainActivity
 import com.example.component.R
 import com.google.android.material.button.MaterialButtonToggleGroup
+import com.google.firebase.auth.FirebaseAuth
 
 class Carousel : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,9 +27,17 @@ class Carousel : AppCompatActivity() {
         val appTopBar = findViewById<Toolbar>(R.id.carouselToolbar)
         setSupportActionBar(appTopBar)
 
+        val authentication = FirebaseAuth.getInstance()
         appTopBar.setNavigationOnClickListener {
-            val navigateBack = Intent(this, MainActivity::class.java)
-            startActivity(navigateBack)
+            val authUser = authentication.currentUser
+            if (authUser == null) {
+                val navigateBack = Intent(this, GuestActivity::class.java)
+                startActivity(navigateBack)
+            }
+            else {
+                val navigateBack = Intent(this, MainActivity::class.java)
+                startActivity(navigateBack)
+            }
         }
 
         val segmentedButtons = findViewById<MaterialButtonToggleGroup>(R.id.segmentedControl)

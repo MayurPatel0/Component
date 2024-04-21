@@ -9,7 +9,6 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.widget.doOnTextChanged
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
@@ -28,6 +27,8 @@ class ForgotPassword : AppCompatActivity() {
             insets
         }
 
+        //firebase authentication intialisation, the code logic was taken from here: [https://firebase.google.com/docs/auth/android/start]
+        //Note: The above is the starter guidelines for implementing firebase authentication in your Android apps.
         authentication = FirebaseAuth.getInstance()
 
         val backBtn = findViewById<Button>(R.id.backLogin)
@@ -36,6 +37,7 @@ class ForgotPassword : AppCompatActivity() {
             startActivity(backLog)
         }
 
+        //Referencing the input fields edit and the layout by their ID's from XML.
         val resetEmailLayout = findViewById<TextInputLayout>(R.id.resetEmail)
         val resetEmail = findViewById<TextInputEditText>(R.id.email)
 
@@ -60,6 +62,7 @@ class ForgotPassword : AppCompatActivity() {
                 resetEmailLayout.error = null
                 authentication.sendPasswordResetEmail(email)
                     .addOnCompleteListener {
+                        //Password Reset Email is sent!
                         successDialog()
                     }
             }

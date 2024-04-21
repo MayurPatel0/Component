@@ -5,13 +5,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.ListView
+import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.component.databinding.FragmentHomeBinding
-import android.widget.ArrayAdapter
-import android.widget.SearchView
 import com.example.component.R
+import com.example.component.databinding.FragmentHomeBinding
 import com.example.component.datePicker
 import com.example.component.ui.Banner
 import com.example.component.ui.ButtonView
@@ -48,15 +48,17 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        //Note: this code is automatically generated code boilerplate for fragment class in Android Studio.
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         homeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
 
         listView = root.findViewById(R.id.text_home)
-        val items = arrayOf("Button", "Non-Interactive Elements", "Checkbox", "Switch", "Table", "List", "Links", "Radio", "Loading", "Input", "Slider", "Dialog", "Dropdown", "Picker", "Progress", "Segmented Control", "Tabs", "Banner", "Date Picker")
+        val items = arrayOf("Button", "Non-Interactive Elements", "Checkbox", "Switch", "List", "Links", "Radio", "Loading", "Input", "Slider", "Dialog", "Dropdown", "Picker", "Progress", "Segmented Control", "Tabs", "Banner", "Date Picker")
 
-        // Replace with your data
+        //Code Adapted reference: [https://www.tutorialspoint.com/how-to-use-searchview-in-android-kotlin], part of the kotlin tutorial I undertook for this project.
+        // Only Adapted on how to display a listview with array of lists with a simple list layout.
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, items)
         listView.adapter = adapter
 
@@ -174,13 +176,16 @@ class HomeFragment : Fragment() {
         }
 
         searchView = root.findViewById(R.id.Search_view)
+
+        //Code Adapted reference: [https://www.tutorialspoint.com/how-to-use-searchview-in-android-kotlin], part of the kotlin tutorial I undertook for this project.
+        // Only Adapted on how to filter the list when searched the SearchView at top of the page.
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
+            override fun onQueryTextSubmit(stringList: String?): Boolean {
                 return false
             }
 
-            override fun onQueryTextChange(updatedList: String?): Boolean {
-                adapter.filter.filter(updatedList)
+            override fun onQueryTextChange(filteredList: String?): Boolean {
+                adapter.filter.filter(filteredList)
                 return false
             }
         } )
@@ -188,6 +193,7 @@ class HomeFragment : Fragment() {
         return root
     }
 
+    //Note: this code is automatically generated code boilerplate for fragment class in Android Studio.
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
