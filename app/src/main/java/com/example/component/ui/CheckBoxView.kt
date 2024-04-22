@@ -22,15 +22,19 @@ class CheckBoxView : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_check_box_view)
+        //Note: this code is automatically generated code boilerplate for fragment class in Android Studio.
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
+        //Top bar of the page
         val appTopBar = findViewById<Toolbar>(R.id.checkboxToolbar)
         setSupportActionBar(appTopBar)
 
+        //firebase authentication initialisation: [https://firebase.google.com/docs/auth/android/start]
+        //Note: The above is the starter guidelines for implementing firebase authentication in your Android apps.
         val authentication = FirebaseAuth.getInstance()
         appTopBar.setNavigationOnClickListener {
             val authUser = authentication.currentUser
@@ -44,16 +48,19 @@ class CheckBoxView : AppCompatActivity() {
             }
         }
 
+        //Initialising the checkbox from the layout.
         val checkBox1: CheckBox = findViewById(R.id.checkBox)
         val checkBox2: CheckBox = findViewById(R.id.checkBox2)
         val checkBox3: CheckBox = findViewById(R.id.checkBox3)
         val checkBox4: CheckBox = findViewById(R.id.checkBox4)
         val checkBox5: CheckBox = findViewById(R.id.checkBox5)
 
+        //Code bottom sheet triggering button
         val checkboxCodeButton = findViewById<Button>(R.id.checkboxCode)
         checkboxCodeButton.setOnClickListener { checkboxCodeBottomSheet() }
     }
 
+    //Code Bottom Sheet
     private fun checkboxCodeBottomSheet() {
         val checkboxBottomSheetDialog = BottomSheetDialog(this)
         val checkboxBottomSheetDialogView = layoutInflater.inflate(R.layout.checkbox_bottom_sheet, null)
@@ -66,6 +73,9 @@ class CheckBoxView : AppCompatActivity() {
         val check4 = checkboxBottomSheetDialogView.findViewById<CheckBox>(R.id.checkCode4)
         val check5 = checkboxBottomSheetDialogView.findViewById<CheckBox>(R.id.checkCode5)
         check1.setOnCheckedChangeListener { _, isChecked ->
+
+            //Code re-used & adapted from Chat-Gpt, when a checkbox is checked, strikethrough a textview.
+            //Note. The only difference is the chat-gpt code gave for a particular textview, and we applied here for the checkbox semantic label.
             if (isChecked) {
                 check1.paintFlags = check1.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
             }

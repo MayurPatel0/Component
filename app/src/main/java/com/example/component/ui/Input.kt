@@ -1,6 +1,5 @@
 package com.example.component.ui
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Paint
 import android.os.Bundle
@@ -23,12 +22,14 @@ class Input : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_input)
+        //Note: this code is automatically generated code boilerplate for fragment class in Android Studio.
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
+        //Top bar of the page
         val appTopBar = findViewById<Toolbar>(R.id.inputToolbar)
         setSupportActionBar(appTopBar)
 
@@ -46,7 +47,7 @@ class Input : AppCompatActivity() {
         }
 
         val inputCodeButton = findViewById<Button>(R.id.inputCode)
-
+        //Show the code bottom sheet
         inputCodeButton.setOnClickListener { inputCodeBottomSheet() }
     }
 
@@ -61,6 +62,9 @@ class Input : AppCompatActivity() {
         val check2 = inputBottomSheetDialogView.findViewById<CheckBox>(R.id.inputCode2)
         val check3 = inputBottomSheetDialogView.findViewById<CheckBox>(R.id.inputCode3)
         val check4 = inputBottomSheetDialogView.findViewById<CheckBox>(R.id.inputCode4)
+
+        //Code re-used from Chat-Gpt, when a checkbox is checked, strikethrough a textview.
+        //Note. The only difference is the chat-gpt code gave for a particular textview, and we applied here for the checkbox semantic label.
         check1.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 check1.paintFlags = check1.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG

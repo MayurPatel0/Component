@@ -34,6 +34,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -91,5 +95,7 @@
             android:text="Lastly, make sure that the checkbox control and checkbox label do not receive individual focus. As this can cause confusion to screen reader users. Use 'RelativeLayout' or 'LinearLayout' to group parent and child elments appropriately."/>
 
     </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

@@ -18,16 +18,22 @@ class Carousel : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_carousel)
+        //Note: this code is automatically generated code boilerplate for fragment class in Android Studio.
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
+        //Top bar of the page
         val appTopBar = findViewById<Toolbar>(R.id.carouselToolbar)
         setSupportActionBar(appTopBar)
 
+        //firebase authentication initialisation: [https://firebase.google.com/docs/auth/android/start]
+        //Note: The above is the starter guidelines for implementing firebase authentication in your Android apps.
         val authentication = FirebaseAuth.getInstance()
+
+        //If user is authenticated -> MainActivity, else go to GuestActivity.
         appTopBar.setNavigationOnClickListener {
             val authUser = authentication.currentUser
             if (authUser == null) {
@@ -39,6 +45,7 @@ class Carousel : AppCompatActivity() {
                 startActivity(navigateBack)
             }
         }
+
 
         val segmentedButtons = findViewById<MaterialButtonToggleGroup>(R.id.segmentedControl)
 

@@ -30,6 +30,8 @@
         android:text="@string/linkViews"
         tools:layout_editor_absoluteX="171dp"
         tools:layout_editor_absoluteY="249dp"
+        android:textColor="@color/black"
+        android:textColorLink="@color/Blue"
         android:layout_gravity="center"/>
 
     <Button

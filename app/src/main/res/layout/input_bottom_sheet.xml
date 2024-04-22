@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -8,7 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="15dp">
+        android:padding="15dp"
+        tools:ignore="UseCompoundDrawables">
 
         <TextView
             android:layout_width="280dp"
@@ -33,6 +35,10 @@
     <com.google.android.material.divider.MaterialDivider
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -82,5 +88,7 @@
             android:text="Lastly, make sure that hints, or multiple group label are also associated with the form field. This can be achieved by 'contentDescription'."/>
 
     </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

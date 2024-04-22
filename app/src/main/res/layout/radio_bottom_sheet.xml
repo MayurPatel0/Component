@@ -34,6 +34,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -95,5 +99,7 @@
             android:text="Lastly, make sure that the radio buttons are appropriately grouped using 'RadioGroup' As, this will signpost users on the number of radio buttons and allow them make appropriate selection."/>
 
     </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

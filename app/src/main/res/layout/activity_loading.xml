@@ -28,6 +28,8 @@
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:accessibilityLiveRegion="polite"
+        android:contentDescription="Loading"
         android:layout_gravity="center"/>
 
     <Button

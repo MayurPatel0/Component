@@ -23,7 +23,7 @@ class Login : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.login)
 
-        //firebase authentication intialisation, the code logic was taken from here: [https://firebase.google.com/docs/auth/android/start]
+        //firebase authentication initialisation, the code logic was taken from here: [https://firebase.google.com/docs/auth/android/start]
         //Note: The above is the starter guidelines for implementing firebase authentication in your Android apps.
         authentication = FirebaseAuth.getInstance()
 
@@ -109,7 +109,7 @@ class Login : AppCompatActivity() {
                 errorPassField()
             }
             else {
-                //code logic adapted from: [https://androidknowledge.com/login-signup-android-firebase-auth-kotlin/], further information can be found in appendix.
+                //code adapted from: [https://androidknowledge.com/login-signup-android-firebase-auth-kotlin/], further information can be found in appendix.
                 // Only Adapted the logic on how to login with email and password as a whole, also learnt from original firebase authentication references: [https://firebase.google.com/docs/auth/android/password-auth]
                 // Original code: From original code, only adapted how to login a user, once the user is logged in he goes to the main activity, was implemented by me.
             authentication.signInWithEmailAndPassword(emailAddress, password)
@@ -118,7 +118,7 @@ class Login : AppCompatActivity() {
                         val loginComplete = Intent(this, MainActivity::class.java)
                         startActivity(loginComplete)
                     } else {
-                        //Error Alert when the user cannot be logged in, due to multiple reasons such as already wrong used etails, or the registered user does not exist, or network error, or firebase authentication broke down.
+                        //Error Alert when the user cannot be logged in, due to multiple reasons such as already used details, or the registered user does not exist, or network error, or firebase authentication broke down.
                         userNotFound()
                     }
                 }

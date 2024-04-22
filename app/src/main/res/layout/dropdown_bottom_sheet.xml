@@ -34,6 +34,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -68,5 +72,7 @@
             android:text="Also, when the dropdown is closed when selecting an option or closing the dropdwon. Make sure, the focus returns to the triggering element, i.e. the dropdown form."/>
 
     </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

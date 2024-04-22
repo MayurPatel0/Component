@@ -177,7 +177,7 @@ class HomeFragment : Fragment() {
 
         searchView = root.findViewById(R.id.Search_view)
 
-        //Code Adapted reference: [https://www.tutorialspoint.com/how-to-use-searchview-in-android-kotlin], part of the kotlin tutorial I undertook for this project.
+        //Code Adapted reference: [https://www.tutorialspoint.com/how-to-use-searchview-in-android-kotlin], part of the java -> kotlin refresher tutorial I undertook for this project.
         // Only Adapted on how to filter the list when searched the SearchView at top of the page.
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(stringList: String?): Boolean {
