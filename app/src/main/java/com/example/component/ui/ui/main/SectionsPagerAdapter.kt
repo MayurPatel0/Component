@@ -6,7 +6,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.example.component.R
 
-
+//Code generated as part of the tabbed views activity [Android Studio], It forms part of a code boilerplate.
 private val TAB_TITLES = arrayOf(
     R.string.tab_text_1,
     R.string.tab_text_2

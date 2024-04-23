@@ -1,7 +1,11 @@
 package com.example.component.ui
 
 import android.content.Intent
+import android.graphics.Paint
 import android.os.Bundle
+import android.widget.Button
+import android.widget.CheckBox
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.viewpager.widget.ViewPager
@@ -10,8 +14,7 @@ import com.example.component.MainActivity
 import com.example.component.R
 import com.example.component.databinding.ActivityTabControlBinding
 import com.example.component.ui.ui.main.SectionsPagerAdapter
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.tabs.TabLayout
 import com.google.firebase.auth.FirebaseAuth
 
@@ -28,6 +31,8 @@ class TabControl : AppCompatActivity() {
         val appTopBar = findViewById<Toolbar>(R.id.tabToolbar)
         setSupportActionBar(appTopBar)
 
+        //firebase authentication initialisation: [https://firebase.google.com/docs/auth/android/start]
+        //Note: The above is the starter guidelines for implementing firebase authentication in your Android apps.
         val authentication = FirebaseAuth.getInstance()
         appTopBar.setNavigationOnClickListener {
             val authUser = authentication.currentUser
@@ -47,12 +52,49 @@ class TabControl : AppCompatActivity() {
         viewPager.adapter = sectionsPagerAdapter
         val tabs: TabLayout = binding.tabs
         tabs.setupWithViewPager(viewPager)
-        val fab: FloatingActionButton = binding.fab
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Email: testxyz@gmail.com", Snackbar.LENGTH_LONG)
-                .setAction("Action", null)
-                .setAnchorView(R.id.fab).show()
+
+        val tabCodeButton = findViewById<Button>(R.id.tabCode)
+        tabCodeButton.setOnClickListener {
+            tabCodeBottomSheet()
         }
+
+    }
+
+    //Code bottom sheet
+    private fun tabCodeBottomSheet() {
+        val tabBottomSheetDialog = BottomSheetDialog(this)
+        val tabBottomSheetDialogView = layoutInflater.inflate(R.layout.tab_bottom_sheet, null)
+        tabBottomSheetDialog.setContentView(tabBottomSheetDialogView)
+        val closeDialog = tabBottomSheetDialogView.findViewById<ImageView>(R.id.close)
+        closeDialog.setOnClickListener { tabBottomSheetDialog.dismiss() }
+        val check1 = tabBottomSheetDialogView.findViewById<CheckBox>(R.id.tabCode1)
+        val check2 = tabBottomSheetDialogView.findViewById<CheckBox>(R.id.tabCode2)
+        val check3 = tabBottomSheetDialogView.findViewById<CheckBox>(R.id.tabCode3)
+        check1.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                check1.paintFlags = check1.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
+            else {
+                check1.paintFlags = check1.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            }
+        }
+        check2.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                check2.paintFlags = check2.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
+            else {
+                check2.paintFlags = check2.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            }
+        }
+        check3.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                check3.paintFlags = check3.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
+            else {
+                check3.paintFlags = check3.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            }
+        }
+        tabBottomSheetDialog.show()
     }
 }

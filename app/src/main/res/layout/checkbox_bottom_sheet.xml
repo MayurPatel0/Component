@@ -11,7 +11,7 @@
         android:padding="15dp">
 
         <TextView
-            android:layout_width="280dp"
+            android:layout_width="250dp"
             android:layout_height="50dp"
             android:text="Accessibility Code"
             android:textColor="@color/black"
@@ -20,10 +20,8 @@
             android:accessibilityHeading="true"/>
 
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:contentDescription="Close Dialog"
             android:src="@drawable/baseline_close_24"
             android:id="@+id/close"/>
@@ -92,7 +90,7 @@
             android:maxLines="5"
             android:textColor="@color/black"
             android:textSize="16sp"
-            android:text="Lastly, make sure that the checkbox control and checkbox label do not receive individual focus. As this can cause confusion to screen reader users. Use 'RelativeLayout' or 'LinearLayout' to group parent and child elments appropriately."/>
+            android:text="Lastly, make sure that the checkbox control and checkbox label do not receive individual focus. As this can cause confusion to screen reader users."/>
 
     </LinearLayout>
 

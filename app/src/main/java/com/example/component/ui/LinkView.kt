@@ -3,7 +3,6 @@ package com.example.component.ui
 import android.content.Intent
 import android.graphics.Paint
 import android.os.Bundle
-import android.text.Html
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.ImageView
@@ -24,15 +23,19 @@ class LinkView : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_link_view)
+        //Note: this code is automatically generated code boilerplate for fragment class in Android Studio.
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
+        //Top bar of the page
         val appTopBar = findViewById<Toolbar>(R.id.linkToolbar)
         setSupportActionBar(appTopBar)
 
+        //firebase authentication initialisation: [https://firebase.google.com/docs/auth/android/start]
+        //Note: The above is the starter guidelines for implementing firebase authentication in your Android apps.
         val authentication = FirebaseAuth.getInstance()
         appTopBar.setNavigationOnClickListener {
             val authUser = authentication.currentUser

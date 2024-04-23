@@ -34,13 +34,12 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_marginEnd="@dimen/fab_margin"
-        android:layout_marginBottom="16dp"
-        app:srcCompat="@android:drawable/ic_dialog_email"
-        android:contentDescription="Email" />
+        android:layout_gravity="center"
+        android:text="Code"
+        android:id="@+id/tabCode"
+        app:icon="@drawable/baseline_keyboard_arrow_down_24" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

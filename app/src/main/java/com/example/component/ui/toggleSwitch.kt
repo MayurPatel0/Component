@@ -31,6 +31,8 @@ class toggleSwitch : AppCompatActivity() {
         val appTopBar = findViewById<Toolbar>(R.id.switchToolbar)
         setSupportActionBar(appTopBar)
 
+        //firebase authentication initialisation: [https://firebase.google.com/docs/auth/android/start]
+        //Note: The above is the starter guidelines for implementing firebase authentication in your Android apps.
         val authentication = FirebaseAuth.getInstance()
         appTopBar.setNavigationOnClickListener {
             val authUser = authentication.currentUser

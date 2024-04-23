@@ -35,7 +35,9 @@
             android:layout_height="wrap_content"
             android:src="@drawable/baseline_brightness_low_24"
             android:layout_marginTop="235dp"
-            android:layout_marginStart="60dp"/>
+            android:layout_marginStart="60dp"
+            android:contentDescription="Light Mode"
+            android:labelFor="@+id/seekBar"/>
 
         <SeekBar
             android:id="@+id/seekBar"
@@ -44,15 +46,16 @@
             android:layout_gravity="center"
             android:max="10"
             android:min="0"
-            android:progress="4"/>
+            android:progress="4" />
 
         <ImageView
             android:id="@+id/imageView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/baseline_brightness_high_24"
-            android:layout_marginTop="235dp"/>
-
+            android:layout_marginTop="235dp"
+            android:contentDescription="Dark Mode"
+            android:labelFor="@+id/seekBar"/>
 
     </LinearLayout>
 

@@ -7,10 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.component.GuestActivity
-import com.example.component.MainActivity
 import com.example.component.R
-import com.google.firebase.auth.FirebaseAuth
 
 class Heading : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,17 +23,10 @@ class Heading : AppCompatActivity() {
         val appTopBar = findViewById<Toolbar>(R.id.headingToolbar)
         setSupportActionBar(appTopBar)
 
-        val authentication = FirebaseAuth.getInstance()
+        //Navigate Back to Parent screen
         appTopBar.setNavigationOnClickListener {
-            val authUser = authentication.currentUser
-            if (authUser == null) {
-                val navigateBack = Intent(this, GuestActivity::class.java)
-                startActivity(navigateBack)
-            }
-            else {
-                val navigateBack = Intent(this, MainActivity::class.java)
-                startActivity(navigateBack)
-            }
+            val navigateBack = Intent(this, NonInteractive::class.java)
+            startActivity(navigateBack)
         }
 
     }

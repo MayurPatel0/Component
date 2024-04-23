@@ -94,6 +94,10 @@
         android:gravity="center"
         android:accessibilityHeading="true"/>
 
+    <!-- Re used Code for the Image Display taken from here: [https://www.youtube.com/watch?v=rLDKb4eagpI] -->
+    <!-- Note: Only the Image display was taken, and the functionality of adding image was done via "Select Image" button -->
+    <!-- Full details on the reuse can be found in the re-use appendix -->
+
     <androidx.cardview.widget.CardView
         android:layout_width="300dp"
         android:layout_height="150dp"
@@ -156,7 +160,7 @@
         android:width="100dp"
         android:text="Submit"
         android:layout_marginTop="30dp"
-        android:layout_marginStart="150dp"
+        android:layout_gravity="center"
         android:id="@+id/submitQuery"/>
 
 </LinearLayout>

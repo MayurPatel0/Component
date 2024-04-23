@@ -33,6 +33,8 @@ class Input : AppCompatActivity() {
         val appTopBar = findViewById<Toolbar>(R.id.inputToolbar)
         setSupportActionBar(appTopBar)
 
+        //firebase authentication initialisation: [https://firebase.google.com/docs/auth/android/start]
+        //Note: The above is the starter guidelines for implementing firebase authentication in your Android apps.
         val authentication = FirebaseAuth.getInstance()
         appTopBar.setNavigationOnClickListener {
             val authUser = authentication.currentUser
@@ -51,7 +53,7 @@ class Input : AppCompatActivity() {
         inputCodeButton.setOnClickListener { inputCodeBottomSheet() }
     }
 
-
+    //Code Bottom Sheet
     private fun inputCodeBottomSheet() {
         val inputBottomSheetDialog = BottomSheetDialog(this)
         val inputBottomSheetDialogView = layoutInflater.inflate(R.layout.input_bottom_sheet, null)

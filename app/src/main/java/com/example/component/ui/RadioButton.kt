@@ -19,12 +19,12 @@ import com.google.firebase.auth.FirebaseAuth
 
 class RadioButton : AppCompatActivity() {
 
-    private lateinit var radioGroup: RadioGroup
-    private lateinit var radioButton: RadioButton
-    private lateinit var radioButton1: RadioButton
-    private lateinit var radioButton2: RadioButton
-    private lateinit var radioButton3: RadioButton
-    private lateinit var radioButton4: RadioButton
+    private lateinit var legend: RadioGroup
+    private lateinit var radioBtn1: RadioButton
+    private lateinit var radioBtn2: RadioButton
+    private lateinit var radioBtn3: RadioButton
+    private lateinit var radioBtn4: RadioButton
+    private lateinit var radioBtn5: RadioButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +39,8 @@ class RadioButton : AppCompatActivity() {
         val appTopBar = findViewById<Toolbar>(R.id.radioToolbar)
         setSupportActionBar(appTopBar)
 
+        //firebase authentication initialisation: [https://firebase.google.com/docs/auth/android/start]
+        //Note: The above is the starter guidelines for implementing firebase authentication in your Android apps.
         val authentication = FirebaseAuth.getInstance()
         appTopBar.setNavigationOnClickListener {
             val authUser = authentication.currentUser
@@ -52,12 +54,13 @@ class RadioButton : AppCompatActivity() {
             }
         }
 
-        radioGroup = findViewById(R.id.groupLabel)
-        radioButton = findViewById(R.id.radio1)
-        radioButton1 = findViewById(R.id.radio2)
-        radioButton2 = findViewById(R.id.radio3)
-        radioButton3 = findViewById(R.id.radio4)
-        radioButton4 = findViewById(R.id.radio5)
+
+        legend = findViewById(R.id.groupLabel)
+        radioBtn1 = findViewById(R.id.radio1)
+        radioBtn2 = findViewById(R.id.radio2)
+        radioBtn3 = findViewById(R.id.radio3)
+        radioBtn4 = findViewById(R.id.radio4)
+        radioBtn5 = findViewById(R.id.radio5)
 
 
         val radioButtonCode = findViewById<Button>(R.id.radioCode)

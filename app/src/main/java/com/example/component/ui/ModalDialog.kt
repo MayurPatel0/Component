@@ -3,7 +3,6 @@ package com.example.component.ui
 import android.content.Intent
 import android.graphics.Paint
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.ImageView
@@ -20,6 +19,8 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.auth.FirebaseAuth
 
 class ModalDialog : AppCompatActivity() {
+
+    private lateinit var modalDialogButton: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -33,6 +34,8 @@ class ModalDialog : AppCompatActivity() {
         val appTopBar = findViewById<Toolbar>(R.id.modalToolbar)
         setSupportActionBar(appTopBar)
 
+        //firebase authentication initialisation: [https://firebase.google.com/docs/auth/android/start]
+        //Note: The above is the starter guidelines for implementing firebase authentication in your Android apps.
         val authentication = FirebaseAuth.getInstance()
         appTopBar.setNavigationOnClickListener {
             val authUser = authentication.currentUser
@@ -46,7 +49,7 @@ class ModalDialog : AppCompatActivity() {
             }
         }
 
-        val modalDialogButton = findViewById<Button>(R.id.buttonDialog)
+        modalDialogButton = findViewById(R.id.buttonDialog)
         modalDialogButton.setOnClickListener {
             dialog()
         }
@@ -95,9 +98,10 @@ class ModalDialog : AppCompatActivity() {
         MaterialAlertDialogBuilder(this)
             .setTitle("Are you sure you want to Submit?")
             .setMessage("By submitting this, you wouldn't be able to return back. If you want to abort, press the cancel button now!")
-            .setNegativeButton("Cancel", null)
+            .setNegativeButton("Cancel") { dialog, which ->
+                modalDialogButton.requestFocus()
+            }
             .setPositiveButton("Continue"){ dialog, which ->
-
             }
 
         .show()

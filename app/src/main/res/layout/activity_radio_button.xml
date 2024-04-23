@@ -45,6 +45,7 @@
             android:id="@+id/radio1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="How would you rate this app?: Excellent 5/5"
             android:text="Excellent 5/5"
             />
 
@@ -52,6 +53,7 @@
             android:id="@+id/radio2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="How would you rate this app?: Very Good 4/5"
             android:text="Very Good 4/5"
             />
 
@@ -60,6 +62,7 @@
             android:id="@+id/radio3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="How would you rate this app?: Good 3/5"
             android:text="Good 3/5"
              />
 
@@ -67,6 +70,7 @@
             android:id="@+id/radio4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="How would you rate this app?: Fair 2/5"
             android:text="Fair 2/5"
              />
 
@@ -75,6 +79,7 @@
             android:id="@+id/radio5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="How would you rate this app?: Poor 1/5"
             android:text="Poor 1/5"
              />
 
@@ -84,7 +89,6 @@
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_margin="50dp"
-        android:layout_alignParentBottom="true"
         android:text="Code"
         android:id="@+id/radioCode"
         app:icon="@drawable/baseline_keyboard_arrow_down_24"

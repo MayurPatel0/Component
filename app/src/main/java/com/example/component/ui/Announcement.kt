@@ -7,36 +7,29 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.component.GuestActivity
-import com.example.component.MainActivity
 import com.example.component.R
-import com.google.firebase.auth.FirebaseAuth
 
 class Announcement : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_announcement)
+        //Note: this code is automatically generated code boilerplate for activity class in Android Studio.
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
+        //Top bar of the page
         val appTopBar = findViewById<Toolbar>(R.id.announcementToolbar)
         setSupportActionBar(appTopBar)
 
-        val authentication = FirebaseAuth.getInstance()
+
+        //Navigate back to parent view
         appTopBar.setNavigationOnClickListener {
-            val authUser = authentication.currentUser
-            if (authUser == null) {
-                val navigateBack = Intent(this, GuestActivity::class.java)
+                val navigateBack = Intent(this, NonInteractive::class.java)
                 startActivity(navigateBack)
-            }
-            else {
-                val navigateBack = Intent(this, MainActivity::class.java)
-                startActivity(navigateBack)
-            }
         }
 
     }

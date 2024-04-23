@@ -33,6 +33,8 @@ class SelectPicker : AppCompatActivity() {
         val appTopBar = findViewById<Toolbar>(R.id.pickerToolbar)
         setSupportActionBar(appTopBar)
 
+        //firebase authentication initialisation: [https://firebase.google.com/docs/auth/android/start]
+        //Note: The above is the starter guidelines for implementing firebase authentication in your Android apps.
         val authentication = FirebaseAuth.getInstance()
         appTopBar.setNavigationOnClickListener {
             val authUser = authentication.currentUser
@@ -48,6 +50,7 @@ class SelectPicker : AppCompatActivity() {
 
         val spinner = findViewById<Spinner>(R.id.Select_spinner)
 
+        //List values as part of the spinner options
         val values = arrayOf(
             "1",
             "2",
@@ -61,7 +64,8 @@ class SelectPicker : AppCompatActivity() {
             "10"
         )
 
-        val adapter = ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, values)
+        //Populate list data using adapter into a spinner dropdown.
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, values)
         spinner.adapter = adapter
 
         val pickerCodeButton = findViewById<Button>(R.id.pickerCode)

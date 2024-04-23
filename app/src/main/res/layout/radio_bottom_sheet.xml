@@ -44,57 +44,57 @@
         android:orientation="vertical"
         android:id="@+id/code">
 
-        <TextView
+        <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:maxLines="7"
             android:textColor="@color/black"
+            android:id="@+id/radioCode1"
             android:textSize="16sp"
             android:text="Make sure that radio elements always have a programmatically determined name, role and state. Remember radio buttons are mutually exclusive, and users should be only allowed to check or uncheck them dependent on other radio buttons within the group."/>
 
-        <TextView
+        <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:maxLines="3"
             android:textColor="@color/black"
+            android:id="@+id/radioCode2"
             android:textSize="16sp"
             android:text="The radio programmatic name should match the visible label on screen, and can be provided via 'android:text' or 'android:labelFor'."/>
 
-        <TextView
+        <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:maxLines="2"
             android:textColor="@color/black"
+            android:id="@+id/radioCode3"
             android:textSize="16sp"
             android:text="The native 'RadioButton' widget already announces appropriate role of radio button."/>
 
-        <TextView
+        <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:maxLines="3"
             android:textColor="@color/black"
+            android:id="@+id/radioCode4"
             android:textSize="16sp"
             android:text="The native 'RadioButton' widget appropriately announces the current state of the radio button, whether it is checked/unchecked and updates automatically."/>
 
-        <TextView
+        <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:maxLines="5"
             android:textColor="@color/black"
+            android:id="@+id/radioCode5"
             android:textSize="16sp"
-            android:text="Additionally, make sure that the radio control and radio label do not receive individual focus. As this can cause confusion to screen reader users. Use 'RelativeLayout' or 'LinearLayout' to group parent and child elments appropriately."/>
+            android:text="Additionally, make sure that the radio control and radio label do not receive individual focus. As this can cause confusion to screen reader users."/>
 
-        <TextView
+        <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:maxLines="5"
             android:textColor="@color/black"
+            android:id="@+id/radioCode6"
             android:textSize="16sp"
             android:text="Lastly, make sure that the radio buttons are appropriately grouped using 'RadioGroup' As, this will signpost users on the number of radio buttons and allow them make appropriate selection."/>
 

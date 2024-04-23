@@ -1,7 +1,9 @@
 package com.example.component
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.text.util.Linkify
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.PreferenceFragmentCompat
@@ -29,6 +31,14 @@ class SettingsActivity : AppCompatActivity() {
         }
         else {
             userDetails.text = authDetails.email
+        }
+
+        val accessibilityStatement = findViewById<TextView>(R.id.statement)
+        Linkify.addLinks(accessibilityStatement, Linkify.WEB_URLS)
+        accessibilityStatement.setOnClickListener {
+            val accessibilityDocument = "https://docs.google.com/document/d/1bxb_UDJsmMCkNNMNojDdGv3FzhdfmgCBHOMEhgFaPE4/edit?usp=sharing"
+            val accessibilityURL = Intent(Intent.ACTION_VIEW, Uri.parse(accessibilityDocument))
+            startActivity(accessibilityURL)
         }
 
         //Guidance for code taken from: [https://firebase.google.com/docs/auth/android/password-auth]

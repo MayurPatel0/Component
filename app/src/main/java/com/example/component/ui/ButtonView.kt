@@ -22,7 +22,7 @@ class ButtonView : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_button_view)
-        //Note: this code is automatically generated code boilerplate for fragment class in Android Studio.
+        //Note: this code is automatically generated code boilerplate for activity class in Android Studio.
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)

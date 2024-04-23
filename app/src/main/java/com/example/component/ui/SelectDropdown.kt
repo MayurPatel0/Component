@@ -1,6 +1,5 @@
 package com.example.component.ui
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Paint
 import android.os.Bundle
@@ -34,6 +33,8 @@ class SelectDropdown : AppCompatActivity() {
         val appTopBar = findViewById<Toolbar>(R.id.dropdownToolbar)
         setSupportActionBar(appTopBar)
 
+        //firebase authentication initialisation: [https://firebase.google.com/docs/auth/android/start]
+        //Note: The above is the starter guidelines for implementing firebase authentication in your Android apps.
         val authentication = FirebaseAuth.getInstance()
         appTopBar.setNavigationOnClickListener {
             val authUser = authentication.currentUser

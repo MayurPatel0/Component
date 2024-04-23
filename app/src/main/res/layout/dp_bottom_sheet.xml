@@ -11,7 +11,7 @@
         android:padding="15dp">
 
         <TextView
-            android:layout_width="280dp"
+            android:layout_width="250dp"
             android:layout_height="50dp"
             android:text="Accessibility Code"
             android:textColor="@color/black"
@@ -20,10 +20,8 @@
             android:accessibilityHeading="true"/>
 
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:contentDescription="Close Dialog"
             android:src="@drawable/baseline_close_24"
             android:id="@+id/close"/>
@@ -44,27 +42,30 @@
         android:orientation="vertical"
         android:id="@+id/code">
 
-        <TextView
+        <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:textColor="@color/black"
+            android:id="@+id/dpCode1"
             android:textSize="16sp"
-            android:text="Make sure to always use native 'Button/ImageButton' view, as they have in-built accessibile role. If using custom button with 'clickListener' event, make sure an accessible role is given."/>
+            android:text="Make sure to always use native 'DatePicker' view, as they have in-built accessibile name, role and value. If creating a custom one, make sure to always have apropriate name, role and value."/>
 
-        <TextView
+        <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:textColor="@color/black"
+            android:id="@+id/dpCode2"
             android:textSize="16sp"
-            android:text="Also, make sure that buttons have an appropriate state as well. Disabled button should have a disabled state, this can be achieved via 'enabled=false'."/>
+            android:text="Also, make sure that buttons have an appropriate state as well. Disabled date button should have a disabled state, this can be achieved via 'enabled=false'."/>
 
-        <TextView
+        <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:textColor="@color/black"
+            android:id="@+id/dpCode3"
             android:textSize="16sp"
             android:text="Lastly, make sure that buttons with non-text label have an appropriate accessible name as well. This can be achieved via 'contentDescription'."/>
 

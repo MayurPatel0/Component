@@ -14,7 +14,7 @@
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/switchToolbar"
+            android:id="@+id/dpToolbar"
             app:navigationIcon="@drawable/baseline_arrow_back_24"
             app:navigationContentDescription="Back to Home page"
             android:layout_gravity="center"

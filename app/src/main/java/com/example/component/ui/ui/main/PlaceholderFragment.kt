@@ -13,6 +13,9 @@ import com.example.component.databinding.FragmentTabControlBinding
 /**
  * A placeholder fragment containing a simple view.
  */
+
+
+//Code generated as part of the tabbed views activity [Android Studio], It forms part of a code boilerplate.
 class PlaceholderFragment : Fragment() {
 
     private lateinit var pageViewModel: PageViewModel
@@ -32,7 +35,7 @@ class PlaceholderFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         _binding = FragmentTabControlBinding.inflate(inflater, container, false)
         val root = binding.root
@@ -41,9 +44,15 @@ class PlaceholderFragment : Fragment() {
         pageViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
+
+
         return root
     }
 
+
+
+
+    //Code generated as part of the tabbed views activity [Android Studio], It forms part of a code boilerplate.
     companion object {
         /**
          * The fragment argument representing the section number for this

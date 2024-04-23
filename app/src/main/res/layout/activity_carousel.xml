@@ -48,6 +48,7 @@
             android:layout_height="wrap_content"
             style="?attr/materialButtonOutlinedStyle"
             android:id="@+id/manButton"
+            android:contentDescription="Select Gender Identity: Man"
             android:text="Man"/>
 
         <Button
@@ -55,6 +56,7 @@
             android:layout_height="wrap_content"
             style="?attr/materialButtonOutlinedStyle"
             android:id="@+id/womanButton"
+            android:contentDescription="Select Gender Identity: Woman"
             android:text="Woman"/>
 
 
@@ -63,9 +65,18 @@
             android:layout_height="wrap_content"
             style="?attr/materialButtonOutlinedStyle"
             android:id="@+id/transButton"
+            android:contentDescription="Select Gender Identity: Non-binary"
             android:text="Non-binary"/>
 
 
     </com.google.android.material.button.MaterialButtonToggleGroup>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_margin="50dp"
+        android:text="Code"
+        android:id="@+id/groupCode"
+        app:icon="@drawable/baseline_keyboard_arrow_down_24" />
 
 </LinearLayout>
