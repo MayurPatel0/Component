@@ -29,6 +29,8 @@ class NonInteractive : AppCompatActivity() {
         val appTopBar = findViewById<Toolbar>(R.id.nonIntToolbar)
         setSupportActionBar(appTopBar)
 
+        //firebase authentication initialisation: [https://firebase.google.com/docs/auth/android/start]
+        //Note: The above is the starter guidelines for implementing firebase authentication in your Android apps.
         val authentication = FirebaseAuth.getInstance()
         appTopBar.setNavigationOnClickListener {
             val authUser = authentication.currentUser
@@ -45,6 +47,8 @@ class NonInteractive : AppCompatActivity() {
         val nonInteractList = findViewById<ListView>(R.id.nonIntList)
         val listItems = arrayOf("Non-Text Content", "Headings", "Orientation", "Page Title", "Touch Target", "Language", "Name, Role & Value", "Dynamic Announcements")
 
+        //Code Adapted reference: [https://www.tutorialspoint.com/how-to-use-searchview-in-android-kotlin], part of the kotlin refresher tutorial I undertook for this project.
+        // Only Adapted on how to display a listview with array of lists with a simple list layout and the search View filtering.
         val listAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, listItems)
         nonInteractList.adapter = listAdapter
 
@@ -61,6 +65,7 @@ class NonInteractive : AppCompatActivity() {
             }
         })
 
+        //When the individual list items are triggered, navigate to the corresponding activity class.
         nonInteractList.setOnItemClickListener { parent, _, position, _ ->
             val navigateComponent = parent.getItemAtPosition(position).toString()
             when (navigateComponent) {

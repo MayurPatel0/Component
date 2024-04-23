@@ -53,6 +53,8 @@ class Carousel : AppCompatActivity() {
 
 
 
+        //Material Toggle buttons were re-used from Material Design 3.
+        //[https://github.com/material-components/material-components-android/blob/master/docs/components/Button.md#toggle-button]
         val segmentedButtons = findViewById<MaterialButtonToggleGroup>(R.id.segmentedControl)
         segmentedButtons.addOnButtonCheckedListener { _, _, _ ->
             //Responding to button selection

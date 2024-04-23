@@ -39,6 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Code"
+        android:contentDescription="Code, opens in a bottom sheet"
         android:id="@+id/tabCode"
         app:icon="@drawable/baseline_keyboard_arrow_down_24" />
 

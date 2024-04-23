@@ -35,6 +35,8 @@ class Loading : AppCompatActivity() {
         //firebase authentication initialisation: [https://firebase.google.com/docs/auth/android/start]
         //Note: The above is the starter guidelines for implementing firebase authentication in your Android apps.
         val authentication = FirebaseAuth.getInstance()
+
+        //If user is authenticated -> MainActivity, else go to GuestActivity.
         appTopBar.setNavigationOnClickListener {
             val authUser = authentication.currentUser
             if (authUser == null) {
@@ -63,6 +65,9 @@ class Loading : AppCompatActivity() {
         val check1 = loadingBottomSheetDialogView.findViewById<CheckBox>(R.id.loadingCode1)
         val check2 = loadingBottomSheetDialogView.findViewById<CheckBox>(R.id.loadingCode2)
         val check3 = loadingBottomSheetDialogView.findViewById<CheckBox>(R.id.loadingCode3)
+
+        //Code re-used from Chat-Gpt, when a checkbox is checked, strikethrough a textview.
+        //Note. The only difference is the chat-gpt code gave for a particular textview, and we applied here for the checkbox semantic label.
         check1.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 check1.paintFlags = check1.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG

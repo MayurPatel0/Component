@@ -48,7 +48,7 @@ class CheckBoxView : AppCompatActivity() {
             }
         }
 
-        //Initialising the checkbox from the layout.
+        //Binding the view of the checkbox from the layout.
         val checkBox1: CheckBox = findViewById(R.id.checkBox)
         val checkBox2: CheckBox = findViewById(R.id.checkBox2)
         val checkBox3: CheckBox = findViewById(R.id.checkBox3)

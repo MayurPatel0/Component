@@ -54,6 +54,7 @@
         android:layout_margin="80dp"
         android:layout_alignParentBottom="true"
         android:text="Code"
+        android:contentDescription="Code, opens in a bottom sheet"
         android:id="@+id/dropdownCode"
         app:icon="@drawable/baseline_keyboard_arrow_down_24"
         tools:ignore="MissingConstraints" />

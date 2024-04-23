@@ -66,7 +66,7 @@ class RegisterPage : AppCompatActivity() {
                 passwordLayout.error = null
             }
             else {
-                passwordLayout.error = "Error: Make sure password is more than 6 characters long."
+                passwordLayout.error = "Error: Password is less than 6 characters."
             }
         }
 
@@ -212,6 +212,8 @@ class RegisterPage : AppCompatActivity() {
             .show()
     }
 
+    //The function code for validating password was adapted from chat-gpt.
+    //Full details on the re-use and adapt is in re-use appendix
     private fun validPass(passValid: String): Boolean {
         val regex = Pattern.compile(
             "^.{6,}"
@@ -219,6 +221,8 @@ class RegisterPage : AppCompatActivity() {
         return regex.matcher(passValid).matches()
     }
 
+    //The function code for validating email was adapted from chat-gpt.
+    //Full details on the re-use and adapt is in re-use appendix
     private fun validEmail(emailValid: String): Boolean {
         val regex = Pattern.compile(
             "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}$"

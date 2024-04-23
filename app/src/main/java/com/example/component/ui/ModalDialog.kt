@@ -37,6 +37,7 @@ class ModalDialog : AppCompatActivity() {
         //firebase authentication initialisation: [https://firebase.google.com/docs/auth/android/start]
         //Note: The above is the starter guidelines for implementing firebase authentication in your Android apps.
         val authentication = FirebaseAuth.getInstance()
+        //If user is authenticated -> MainActivity, else go to GuestActivity.
         appTopBar.setNavigationOnClickListener {
             val authUser = authentication.currentUser
             if (authUser == null) {
@@ -67,6 +68,9 @@ class ModalDialog : AppCompatActivity() {
         val check1 = modalBottomSheetDialogView.findViewById<CheckBox>(R.id.modalCode1)
         val check2 = modalBottomSheetDialogView.findViewById<CheckBox>(R.id.modalCode2)
         val check3 = modalBottomSheetDialogView.findViewById<CheckBox>(R.id.modalCode3)
+
+        //Code re-used from Chat-Gpt, when a checkbox is checked, strikethrough a textview.
+        //Note. The only difference is the chat-gpt code gave for a particular textview, and we applied here for the checkbox semantic label.
         check1.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 check1.paintFlags = check1.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
@@ -94,14 +98,16 @@ class ModalDialog : AppCompatActivity() {
         modalBottomSheetDialog.show()
     }
 
+   //MaterialAlertDialogBuilder were coded using the Material 3 (Material Design), original code boilerplate can be found here: [https://github.com/material-components/material-components-android/blob/master/docs/components/Dialog.md
+    // Note: Only the Alert dialog implementation logic was learnt as mentioned above, else the Alert Dialogs were built using the learned knowledge of their code boilerplate.
     private fun dialog() {
         MaterialAlertDialogBuilder(this)
             .setTitle("Are you sure you want to Submit?")
             .setMessage("By submitting this, you wouldn't be able to return back. If you want to abort, press the cancel button now!")
-            .setNegativeButton("Cancel") { dialog, which ->
+            .setNegativeButton("Cancel") { _, _ ->
                 modalDialogButton.requestFocus()
             }
-            .setPositiveButton("Continue"){ dialog, which ->
+            .setPositiveButton("Continue"){ _, _ ->
             }
 
         .show()

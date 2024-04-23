@@ -65,6 +65,7 @@
         android:layout_height="48dp"
         android:layout_margin="80dp"
         android:text="Code"
+        android:contentDescription="Code, opens in a bottom sheet"
         android:id="@+id/toggleCode"
         app:icon="@drawable/baseline_keyboard_arrow_down_24" />
 

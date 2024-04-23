@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.ImageView
-import android.widget.ProgressBar
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -47,7 +46,7 @@ class Progress : AppCompatActivity() {
             }
         }
 
-        val progressBar = findViewById<ProgressBar>(R.id.progressBar3)
+
 
         val progressCodeButton = findViewById<Button>(R.id.progressCode)
         progressCodeButton.setOnClickListener { progressCodeBottomSheet() }
@@ -63,6 +62,9 @@ class Progress : AppCompatActivity() {
         val check1 = progressBottomSheetDialogView.findViewById<CheckBox>(R.id.progressCode1)
         val check2 = progressBottomSheetDialogView.findViewById<CheckBox>(R.id.progressCode2)
         val check3 = progressBottomSheetDialogView.findViewById<CheckBox>(R.id.progressCode3)
+
+        //Code re-used from Chat-Gpt, when a checkbox is checked, strikethrough a textview.
+        //Note. The only difference is the chat-gpt code gave for a particular textview, and we applied here for the checkbox semantic label.
         check1.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 check1.paintFlags = check1.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG

@@ -36,6 +36,7 @@
         android:layout_margin="50dp"
         android:text="Code"
         android:id="@+id/modalCode"
+        android:contentDescription="Code, opens in a bottom sheet"
         app:icon="@drawable/baseline_keyboard_arrow_down_24"
         android:layout_gravity="bottom"
         />

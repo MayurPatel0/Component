@@ -71,6 +71,9 @@ class TabControl : AppCompatActivity() {
         val check1 = tabBottomSheetDialogView.findViewById<CheckBox>(R.id.tabCode1)
         val check2 = tabBottomSheetDialogView.findViewById<CheckBox>(R.id.tabCode2)
         val check3 = tabBottomSheetDialogView.findViewById<CheckBox>(R.id.tabCode3)
+
+        //Code re-used from Chat-Gpt, when a checkbox is checked, strikethrough a textview.
+        //Note. The only difference is the chat-gpt code gave for a particular textview, and we applied here for the checkbox semantic label.
         check1.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 check1.paintFlags = check1.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG

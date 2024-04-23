@@ -67,6 +67,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="20dp"
         android:layout_marginTop="40dp"
+        android:contentDescription="Code, opens in a bottom sheet"
         android:text="Code"
         app:icon="@drawable/baseline_keyboard_arrow_down_24" />
 

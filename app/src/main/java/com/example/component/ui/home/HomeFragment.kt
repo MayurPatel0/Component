@@ -57,11 +57,14 @@ class HomeFragment : Fragment() {
         listView = root.findViewById(R.id.text_home)
         val items = arrayOf("Button", "Non-Interactive Elements", "Checkbox", "Switch", "List", "Links", "Radio", "Loading", "Input", "Slider", "Dialog", "Dropdown", "Picker", "Progress", "Segmented Control", "Tabs", "Banner", "Date Picker")
 
-        //Code Adapted reference: [https://www.tutorialspoint.com/how-to-use-searchview-in-android-kotlin], part of the kotlin tutorial I undertook for this project.
+        //Code Adapted reference: [https://www.tutorialspoint.com/how-to-use-searchview-in-android-kotlin], part of the kotlin refresher tutorial I undertook for this project.
         // Only Adapted on how to display a listview with array of lists with a simple list layout.
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, items)
         listView.adapter = adapter
 
+        //The following code for navigating from fragment to individual activity class was re-used & adapted to the whole list items.
+        //The code was re-used & adapted from chat-gpt (AI)
+        //Full details on prompt made and re-use is available in re-use appendix.
         listView.setOnItemClickListener { parent, _, position, _ ->
             val selectedItem = parent.getItemAtPosition(position).toString()
 

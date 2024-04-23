@@ -36,6 +36,7 @@ class RadioButton : AppCompatActivity() {
             insets
         }
 
+        //app top bar
         val appTopBar = findViewById<Toolbar>(R.id.radioToolbar)
         setSupportActionBar(appTopBar)
 
@@ -55,6 +56,7 @@ class RadioButton : AppCompatActivity() {
         }
 
 
+        //View binding the radio group and buttons from the layout.
         legend = findViewById(R.id.groupLabel)
         radioBtn1 = findViewById(R.id.radio1)
         radioBtn2 = findViewById(R.id.radio2)

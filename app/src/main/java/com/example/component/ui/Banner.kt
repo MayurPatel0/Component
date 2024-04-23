@@ -24,16 +24,22 @@ class Banner : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_banner)
+        //Note: this code is automatically generated code boilerplate for activity class in Android Studio.
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
+        //Top bar of the page
         val appTopBar = findViewById<Toolbar>(R.id.bannerToolbar)
         setSupportActionBar(appTopBar)
 
+        //firebase authentication initialisation: [https://firebase.google.com/docs/auth/android/start]
+        //Note: The above is the starter guidelines for implementing firebase authentication in your Android apps.
         val authentication = FirebaseAuth.getInstance()
+
+        //If user is authenticated -> MainActivity, else go to GuestActivity.
         appTopBar.setNavigationOnClickListener {
             val authUser = authentication.currentUser
             if (authUser == null) {
@@ -51,8 +57,8 @@ class Banner : AppCompatActivity() {
         val bannerCodeButton = findViewById<Button>(R.id.bannerCode)
 
         bannerButton.setOnClickListener {
-            val banner = Snackbar.make(it, "This is the Banner Message", Snackbar.LENGTH_LONG).setAction("", null)
-            banner.show()
+            val bannerTrigger = Snackbar.make(it, "Thank you for triggering me, this is the message.", Snackbar.LENGTH_LONG).setAction("", null)
+            bannerTrigger.show()
         }
 
         bannerCodeButton.setOnClickListener {
@@ -71,6 +77,9 @@ class Banner : AppCompatActivity() {
         val check1 = bannerBottomSheetDialogView.findViewById<CheckBox>(R.id.bannerCode1)
         val check2 = bannerBottomSheetDialogView.findViewById<CheckBox>(R.id.bannerCode2)
         val check3 = bannerBottomSheetDialogView.findViewById<CheckBox>(R.id.bannerCode3)
+
+        //Code re-used from Chat-Gpt, when a checkbox is checked, strikethrough a textview.
+        //Note. The only difference is the chat-gpt code gave for a particular textview, and we applied here for the checkbox semantic label.
         check1.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 check1.paintFlags = check1.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG

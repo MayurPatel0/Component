@@ -179,6 +179,8 @@ class Login : AppCompatActivity() {
             .show()
     }
 
+    //The function code for validating password was adapted from chat-gpt.
+    //Full details on the re-use and adapt is in re-use appendix.
     private fun isPassValid(validPass: String): Boolean {
         val regex = Pattern.compile(
             "^.{6,}"
@@ -186,6 +188,8 @@ class Login : AppCompatActivity() {
         return regex.matcher(validPass).matches()
     }
 
+    //The function code for validating email was adapted from chat-gpt.
+    //Full details on the re-use and adapt is in re-use appendix
     private fun isEmailValid(validEmail: String): Boolean {
         val regex = Pattern.compile(
             "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}$"

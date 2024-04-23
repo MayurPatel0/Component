@@ -61,6 +61,9 @@ class toggleSwitch : AppCompatActivity() {
         val check1 = switchBottomSheetDialogView.findViewById<CheckBox>(R.id.toggleCode1)
         val check2 = switchBottomSheetDialogView.findViewById<CheckBox>(R.id.toggleCode2)
         val check3 = switchBottomSheetDialogView.findViewById<CheckBox>(R.id.toggleCode3)
+
+        //Code re-used from Chat-Gpt, when a checkbox is checked, strikethrough a textview.
+        //Note. The only difference is the chat-gpt code gave for a particular textview, and we applied here for the checkbox semantic label.
         check1.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 check1.paintFlags = check1.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG

@@ -11,6 +11,9 @@ import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 
+
+//The whole class code was reused from the here: [https://github.com/firebase/quickstart-android/blob/master/messaging/app/src/main/java/com/google/firebase/quickstart/fcm/kotlin/MyFirebaseMessagingService.kt]
+//Note: The above is part of the Firebase Cloud notifications documentation.
 class MyFirebaseMessagingService : FirebaseMessagingService() {
 
     // [START receive_message]
@@ -46,7 +49,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         // FCM registration token to your app server.
         sendRegistrationToServer(token)
     }
-    // [END on_new_token]
+
 
     private fun handleNow() {
         Log.d(TAG, "Short lived task is done.")

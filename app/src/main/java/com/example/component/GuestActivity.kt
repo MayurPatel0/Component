@@ -46,7 +46,7 @@ class GuestActivity : AppCompatActivity() {
 
         val componentListView = findViewById<ListView>(R.id.componentList)
 
-        //Intialising an array list with components.
+        //Initialising an array list with components.
         val componentList = arrayOf("Button", "Non-Interactive Elements", "Checkbox", "Switch", "List", "Links", "Radio", "Loading", "Input", "Slider", "Dialog", "Dropdown", "Picker", "Progress", "Carousel", "Tabs", "Banner")
 
 
